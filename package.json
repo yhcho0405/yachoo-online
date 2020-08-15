@@ -1,7 +1,7 @@
 {
-  "name": "chatting",
-  "version": "1.0.0",
-  "description": "node-js-socket-io-chatting-site",
+  "name": "YACHOO",
+  "version": "0.0.0",
+  "description": "Yachoo online",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

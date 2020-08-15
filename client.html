@@ -11,6 +11,7 @@
     </style>
   </head>
   <body>
+    <h3 class="room_name"></h3>
     <div>
       <textarea id="chatLog" class="chat_log" readonly></textarea>
     </div>
@@ -45,6 +46,10 @@
         for (var i = 1; i <= rooms; i++) {
           $('.roomlist').append(`<li>room ${i} (${visitors[i - 1]} / 2)<button onclick="joinRoom(${i});">Join</button></li>`);
         }
+      });
+      socket.on('joined room', function(roomNumber){
+        $('.room_name').append(`Room ${roomNumber}`);
+        $('.roomlist').remove();
       });
     </script>
   </body>

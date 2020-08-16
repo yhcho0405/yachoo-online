@@ -2,7 +2,8 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var game = require('./game.js')
+var util = require('util');
+var game = require('./game.js');
 
 app.get('/',function(req, res){
  	res.sendFile(__dirname + '/client.html');
@@ -18,13 +19,13 @@ for (var i = 0; i <= rooms; i++) {
 io.on('connection', function(socket) {
 	var isJoin = 0;
 	socket.join(isJoin);
-	console.log('user connected: ', socket.id);
+	util.log('user connected: ', socket.id);
 	var name = "user" + count++;
 	io.to(socket.id).emit('change name',name);
 	io.to(socket.id).emit('room list', rooms, visitors);
 
 	socket.on('disconnect', function(){
-		console.log('user disconnected: ', socket.id);
+		util.log('user disconnected: ', socket.id);
 		if (isJoin) {
 			visitors[isJoin - 1]--;
 			io.emit('room list', rooms, visitors);
@@ -35,20 +36,20 @@ io.on('connection', function(socket) {
 
 	socket.on('send message', function(name,text){
 		var msg = name + ' : ' + text;
-		console.log(msg);
+		util.log(msg);
 		io.to(isJoin).emit('receive message', msg);
 	});
 
 	socket.on('join room', function(roomNumber) {
-		console.log(name + " ===== approach room " + roomNumber + " =====");
+		util.log(name + " ===== approach room " + roomNumber + " =====");
 		if (isJoin) {
 			socket.emit('receive message', `[system] You already joined room ${isJoin}`);
-			console.log(name + " =====already joined room " + isJoin + " =====");
+			util.log(name + " =====already joined room " + isJoin + " =====");
 		}
 		else if (visitors[roomNumber - 1] < 2) {
 			visitors[roomNumber - 1]++;
 			isJoin = roomNumber;
-			console.log(name + " ===== accept join =====");
+			util.log(name + " ===== accept join =====");
 			socket.leave(0);
 			socket.join(isJoin);
 			socket.emit('receive message', `[system] You joined room ${isJoin}`);
@@ -59,17 +60,30 @@ io.on('connection', function(socket) {
 			}
 			else if (visitors[roomNumber - 1] == 2) {
 				io.to(isJoin).emit('draw table', 1);
+				io.to(isJoin).emit('test cli', socket.id, 0, name);
 				io.to(isJoin).emit('receive message', `[room ${isJoin}] start game`);
 			}
 		}
 		else {
 			socket.emit('receive message', `[system] room ${roomNumber} is full`);
-			console.log(name + " =====room " + roomNumber + " is full");
+			util.log(name + " ===== room " + roomNumber + " is full =====");
 		}
 		io.emit('room list', rooms, visitors);
+	});
+
+	socket.on('test serv', function(turn) {
+		io.to(isJoin).emit('test cli', socket.id, turn, name);
+	});
+
+	socket.on('append in room', function(target, content) {
+		io.to(isJoin).emit('append me', target, content);
+	});
+
+	socket.on('highlight in room', function(target, before) {
+		io.to(isJoin).emit('highlight me', target, before);
 	});
 });
 
 http.listen(3000, function(){
-  	console.log('server on!');
+  	util.log('server on!');
 });

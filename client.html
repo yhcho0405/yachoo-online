@@ -4,6 +4,19 @@
     <meta charset="utf-8">
     <title>Chat</title>
     <style>
+      body {
+        display: grid;
+        grid-template-areas: 
+        "board etc"
+        "board chat";
+        grid-template-rows: 1fr 300px;
+        grid-template-columns: 300px 1fr;
+        grid-gap: 5px;
+        height: 100vh;
+      }
+      .chat_area {grid-area: chat; margin-bottom: 20px;}
+      .board_area {grid-area: board;}
+      .room_name {margin-top: 0px;}
       .chat_log{ width: 95%; height: 200px; }
       .name{ width: 10%; }
       .message{ width: 70%; }
@@ -11,17 +24,21 @@
     </style>
   </head>
   <body>
-    <h3 class="room_name"></h3>
-    <div>
-      <textarea id="chatLog" class="chat_log" readonly></textarea>
+    <div class="chat_area">
+      <div>
+        <textarea id="chatLog" class="chat_log" readonly></textarea>
+      </div>
+      <form id="chat">
+        <input id="name" class="name" type="text" readonly>
+        <input id="message" class="message" type="text">
+        <input type="submit" class="chat" value="chat"/>
+      </form>
     </div>
-    <form id="chat">
-      <input id="name" class="name" type="text" readonly>
-      <input id="message" class="message" type="text">
-      <input type="submit" class="chat" value="chat"/>
-    </form>
-    <div class="game_table"></div>
-    <al class="roomlist"></al>
+    <div class="board_area">
+      <h3 class="room_name"></h3>
+      <div class="game_table"></div>
+      <al class="roomlist"></al>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.js"></script>
     <script>
@@ -34,95 +51,91 @@
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 .tg .tg-0lax{text-align:left;vertical-align:top}
+.btn{height:25px;width:100%;}
 </style>
 <table class="tg" style="undefined;table-layout: fixed; width: 252px">
 <colgroup>
 <col style="width: 130px">
-<col style="width: 61px">
-<col style="width: 61px">
+<col style="width: 60px">
+<col style="width: 60px">
 </colgroup>
 <thead>
   <tr>
-    <th class="tg-0pky"></th>
-    <th class="tg-0pky"></th>
-    <th class="tg-0pky"></th>
+    <th class="tg-0pky" id="">Turn 1/12</th>
+    <th class="tg-0pky" id="">player1</th>
+    <th class="tg-0pky" id="">player2</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
+    <td class="tg-0pky" id="">Aces</td>
+    <td class="tg-0pky" id=""><button class="btn"></button></td>
+    <td class="tg-0pky" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax" id="">Deuces</td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax" id="">Threes</td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax" id="">Fours</td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax" id="">Fives</td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax" id="">Sixes</td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax" id="">Bonus(+35)</td>
+    <td class="tg-0lax" id="">0/63</td>
+    <td class="tg-0lax" id="">0/63</td>
   </tr>
   <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax" id="">Choice</td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax" id="">4 of a kind</td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax" id="">Full House</td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax" id="">S. Straight</td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax" id="">L. Straight</td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax" id="">Yachoo</td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax" id="">Total</td>
+    <td class="tg-0lax" id="">0</td>
+    <td class="tg-0lax" id="">0</td>
   </tr>
 </tbody>
 </table>

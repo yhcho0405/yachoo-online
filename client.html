@@ -7,7 +7,7 @@
       body {
         display: grid;
         grid-template-areas: 
-        "board etc"
+        "board game"
         "board chat";
         grid-template-rows: 1fr 300px;
         grid-template-columns: 300px 1fr;
@@ -15,6 +15,7 @@
         height: 100vh;
       }
       .chat_area {grid-area: chat; margin-bottom: 20px;}
+      .game_area {grid-area: game;}
       .board_area {grid-area: board;}
       .room_name {margin: 0px;}
       .chat_log{ width: 95%; height: 200px; }
@@ -34,6 +35,7 @@
         <input type="submit" class="chat" value="chat"/>
       </form>
     </div>
+    <div class="game_area"></div>
     <div class="board_area">
       <h3 class="room_name"></h3>
       <div class="game_table"></div>
@@ -49,9 +51,9 @@
   overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-0lax{background-color:#FEFAEE;text-align:left;vertical-align:top}
 .btn{height:25px;width:100%;}
+.dice_text{font-size:20px;}
 </style>
 <table class="tg" style="undefined;table-layout: fixed; width: 252px">
 <colgroup>
@@ -61,90 +63,85 @@
 </colgroup>
 <thead>
   <tr>
-    <th class="tg-0pky" id="">Turn 1/12</th>
-    <th class="tg-0pky" id="">player1</th>
-    <th class="tg-0pky" id="">player2</th>
+    <th class="tg-0lax" id="turn">Turn 1/12</th>
+    <th class="tg-0lax player1" id="p1name"></th>
+    <th class="tg-0lax player2" id="p2name"></th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td class="tg-0pky" id="">⚀ Aces</td>
-    <td class="tg-0pky" id=""><button class="btn"></button></td>
-    <td class="tg-0pky" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><span class="dice_text">⚀</span> Aces</td>
+    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax" id="">⚁ Deuces</td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><span class="dice_text">⚁</span> Deuces</td>
+    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax" id="">⚂ Threes</td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><span class="dice_text">⚂</span> Threes</td>
+    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax" id="">⚃ Fours</td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><span class="dice_text">⚃</span> Fours</td>
+    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax" id="">⚄ Fives</td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><span class="dice_text">⚄</span> Fives</td>
+    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
   </tr>
   <tr>
-    <td class="tg-0lax" id="">⚅ Sixes</td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax" id=""><span class="dice_text">⚅</span> Sixes</td>
+    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">Bonus(+35)</td>
-    <td class="tg-0lax" id="">0/63</td>
-    <td class="tg-0lax" id="">0/63</td>
+    <td class="tg-0lax player1" id="">0/63</td>
+    <td class="tg-0lax player2" id="">0/63</td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🃏 Choice</td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🍀 4 of a kind</td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🏠 Full House</td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🀜 S. Straight</td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🀝 L. Straight</td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🎲 Yachoo</td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
-    <td class="tg-0lax" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">Total</td>
-    <td class="tg-0lax" id="">0</td>
-    <td class="tg-0lax" id="">0</td>
+    <td class="tg-0lax player1" id="">0</td>
+    <td class="tg-0lax player2" id="">0</td>
   </tr>
 </tbody>
 </table>
       `;
-      
-      function joinRoom(roomNumber) {
-        socket.emit('join room', roomNumber);
-      }
-
       var socket = io();
 
       $('#chat').on('submit', function(e){
@@ -163,6 +160,9 @@
         $('#name').val(name);
       });
 
+      function joinRoom(roomNumber) {
+        socket.emit('join room', roomNumber);
+      }
       socket.on('room list', function(rooms, visitors){
         $('.roomlist').empty();
         for (var i = 1; i <= rooms; i++) {
@@ -180,6 +180,39 @@
           $('.game_table').append(tableHTML);
         else
           $('.game_table').empty();
+      });
+      function testfunc(turn) {
+        $('.game_area').empty();
+        socket.emit('test serv', ++turn);
+      }
+      socket.on('test cli', function(id, turn, name){
+        if (id != socket.id) {
+          if (turn == 0) {
+            socket.emit('append in room', '#p2name', name);
+            testfunc(turn);
+          }
+          else if (turn == 1) {
+            socket.emit('append in room', '#p1name', name);
+            testfunc(turn);
+          }
+          else {
+            $('.game_area').append(`<button onclick="testfunc(${turn});">test</button>`);
+            socket.emit('append in room', '#turn', `Turn ${parseInt(turn / 2)}/12`);
+            socket.emit('highlight in room', `.player${turn % 2 + 1}`, `.player${(turn + 1) % 2 + 1}`);
+          }
+        }
+      });
+      function appendMe(target, content) {
+        $(target).empty();
+        $(target).append(content);
+      }
+      socket.on('append me', function(target, content) {
+        appendMe(target, content);
+      });
+
+      socket.on('highlight me', function(target, before) {
+        $(before).css("background-color", "#FEFAEE");
+        $(target).css("background-color", "#FFDF60");
       });
     </script>
   </body>

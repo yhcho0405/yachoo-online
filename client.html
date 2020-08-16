@@ -20,36 +20,153 @@
       <input id="message" class="message" type="text">
       <input type="submit" class="chat" value="chat"/>
     </form>
+    <div class="game_table"></div>
     <al class="roomlist"></al>
     <script src="/socket.io/socket.io.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.js"></script>
     <script>
+      var tableHTML = `
+      <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 252px">
+<colgroup>
+<col style="width: 130px">
+<col style="width: 61px">
+<col style="width: 61px">
+</colgroup>
+<thead>
+  <tr>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky"></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+</tbody>
+</table>
+      `;
+      
       function joinRoom(roomNumber) {
         socket.emit('join room', roomNumber);
       }
+
       var socket = io();
+
       $('#chat').on('submit', function(e){
         socket.emit('send message', $('#name').val(), $('#message').val());
         $('#message').val("");
         $("#message").focus();
         e.preventDefault();
       });
+
       socket.on('receive message', function(msg){
         $('#chatLog').append(msg+'\n');
         $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight);
       });
+
       socket.on('change name', function(name){
         $('#name').val(name);
       });
+
       socket.on('room list', function(rooms, visitors){
         $('.roomlist').empty();
         for (var i = 1; i <= rooms; i++) {
           $('.roomlist').append(`<li>room ${i} (${visitors[i - 1]} / 2)<button onclick="joinRoom(${i});">Join</button></li>`);
         }
       });
+
       socket.on('joined room', function(roomNumber){
         $('.room_name').append(`Room ${roomNumber}`);
         $('.roomlist').remove();
+      });
+
+      socket.on('draw table', function(isStart){
+        if (isStart)
+          $('.game_table').append(tableHTML);
+        else
+          $('.game_table').empty();
       });
     </script>
   </body>

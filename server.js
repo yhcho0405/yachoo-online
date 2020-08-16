@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var game = require('./game.js')
 
 app.get('/',function(req, res){
  	res.sendFile(__dirname + '/client.html');
@@ -27,6 +28,8 @@ io.on('connection', function(socket) {
 		if (isJoin) {
 			visitors[isJoin - 1]--;
 			io.emit('room list', rooms, visitors);
+			io.to(isJoin).emit('receive message', `[room ${isJoin}] leave ${name} finish game`);
+			io.to(isJoin).emit('draw table', 0);
 		}
 	});
 
@@ -37,24 +40,31 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('join room', function(roomNumber) {
-		console.log(socket.id + " =====approach room " + roomNumber);
+		console.log(name + " ===== approach room " + roomNumber + " =====");
 		if (isJoin) {
 			socket.emit('receive message', `[system] You already joined room ${isJoin}`);
-			console.log(socket.id + " =====already joined room " + isJoin);
+			console.log(name + " =====already joined room " + isJoin + " =====");
 		}
 		else if (visitors[roomNumber - 1] < 2) {
 			visitors[roomNumber - 1]++;
 			isJoin = roomNumber;
-			console.log(socket.id + " =====accept join");
+			console.log(name + " ===== accept join =====");
 			socket.leave(0);
 			socket.join(isJoin);
 			socket.emit('receive message', `[system] You joined room ${isJoin}`);
 			io.to(isJoin).emit('receive message', `[room ${isJoin}] join ${name}`);
 			socket.emit('joined room', isJoin);
+			if (visitors[roomNumber - 1] == 1) {
+				socket.emit('receive message', `[room ${isJoin}] wait another player`);
+			}
+			else if (visitors[roomNumber - 1] == 2) {
+				io.to(isJoin).emit('draw table', 1);
+				io.to(isJoin).emit('receive message', `[room ${isJoin}] start game`);
+			}
 		}
 		else {
 			socket.emit('receive message', `[system] room ${roomNumber} is full`);
-			console.log(socket.id + " =====room " + roomNumber + " is full");
+			console.log(name + " =====room " + roomNumber + " is full");
 		}
 		io.emit('room list', rooms, visitors);
 	});

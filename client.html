@@ -7,12 +7,22 @@
       body {
         display: grid;
         grid-template-areas: 
+        "board dice"
         "board game"
         "board chat";
-        grid-template-rows: 1fr 300px;
+        grid-template-rows: 200px 1fr 300px;
         grid-template-columns: 300px 1fr;
         grid-gap: 5px;
         height: 100vh;
+      }
+      .dice_area {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        text-align: center;
+        line-height: 200px;
+        grid-area: dice;
+        background-color: rgb(209, 200, 146);
+        font-size: 60px;
       }
       .chat_area {grid-area: chat; margin-bottom: 20px;}
       .game_area {grid-area: game;}
@@ -34,6 +44,13 @@
         <input id="message" class="message" type="text" autocomplete="off">
         <input type="submit" class="chat" value="chat"/>
       </form>
+    </div>
+    <div class="dice_area">
+      <div class="dices" id="dice1">⚀</div>
+      <div class="dices" id="dice2">⚁</div>
+      <div class="dices" id="dice3">⚂</div>
+      <div class="dices" id="dice4">⚃</div>
+      <div class="dices" id="dice5">⚅</div>
     </div>
     <div class="game_area"></div>
     <div class="board_area">
@@ -166,7 +183,7 @@
       socket.on('room list', function(rooms, visitors){
         $('.roomlist').empty();
         for (var i = 1; i <= rooms; i++) {
-          $('.roomlist').append(`<li>room ${i} (${visitors[i - 1]} / 2)<button onclick="joinRoom(${i});">Join</button></li>`);
+          $('.roomlist').append(`<li>room ${i} (${visitors[i - 1]} / 2)  <button onclick="joinRoom(${i});">Join</button></li>`);
         }
       });
 
@@ -208,6 +225,7 @@
           highlightMe('', '.btn');
         }
       });
+
       function appendMe(target, content) {
         $(target).empty();
         $(target).append(content);

@@ -71,33 +71,33 @@
 <tbody>
   <tr>
     <td class="tg-0lax" id=""><span class="dice_text">⚀</span> Aces</td>
-    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
-    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1 btnplace1" id=""></td>
+    <td class="tg-0lax player2 btnplace2" id=""></td>
   </tr>
   <tr>
     <td class="tg-0lax" id=""><span class="dice_text">⚁</span> Deuces</td>
-    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
-    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1 btnplace1" id=""></td>
+    <td class="tg-0lax player2 btnplace2" id=""></td>
   </tr>
   <tr>
     <td class="tg-0lax" id=""><span class="dice_text">⚂</span> Threes</td>
-    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
-    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1 btnplace1" id=""></td>
+    <td class="tg-0lax player2 btnplace2" id=""></td>
   </tr>
   <tr>
     <td class="tg-0lax" id=""><span class="dice_text">⚃</span> Fours</td>
-    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
-    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1 btnplace1" id=""></td>
+    <td class="tg-0lax player2 btnplace2" id=""></td>
   </tr>
   <tr>
     <td class="tg-0lax" id=""><span class="dice_text">⚄</span> Fives</td>
-    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
-    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1 btnplace1" id=""></td>
+    <td class="tg-0lax player2 btnplace2" id=""></td>
   </tr>
   <tr>
     <td class="tg-0lax" id=""><span class="dice_text">⚅</span> Sixes</td>
-    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
-    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1 btnplace1" id=""></td>
+    <td class="tg-0lax player2 btnplace2" id=""></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">Bonus(+35)</td>
@@ -106,33 +106,33 @@
   </tr>
   <tr>
     <td class="tg-0lax" id="">🃏 Choice</td>
-    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
-    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1 btnplace1" id=""></td>
+    <td class="tg-0lax player2 btnplace2" id=""></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🍀 4 of a kind</td>
-    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
-    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1 btnplace1" id=""></td>
+    <td class="tg-0lax player2 btnplace2" id=""></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🏠 Full House</td>
-    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
-    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1 btnplace1" id=""></td>
+    <td class="tg-0lax player2 btnplace2" id=""></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🀜 S. Straight</td>
-    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
-    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1 btnplace1" id=""></td>
+    <td class="tg-0lax player2 btnplace2" id=""></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🀝 L. Straight</td>
-    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
-    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1 btnplace1" id=""></td>
+    <td class="tg-0lax player2 btnplace2" id=""></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🎲 Yachoo</td>
-    <td class="tg-0lax player1" id=""><button class="btn"></button></td>
-    <td class="tg-0lax player2" id=""><button class="btn"></button></td>
+    <td class="tg-0lax player1 btnplace1" id=""></td>
+    <td class="tg-0lax player2 btnplace2" id=""></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">Total</td>
@@ -189,10 +189,12 @@
         if (id != socket.id) {
           if (turn == 0) {
             socket.emit('append in room', '#p2name', name);
+            appendMe('.btnplace1', '<button class="btn"></button>');
             testfunc(turn);
           }
           else if (turn == 1) {
             socket.emit('append in room', '#p1name', name);
+            appendMe('.btnplace2', '<button class="btn"></button>');
             testfunc(turn);
           }
           else {
@@ -200,6 +202,10 @@
             socket.emit('append in room', '#turn', `Turn ${parseInt(turn / 2)}/12`);
             socket.emit('highlight in room', `.player${turn % 2 + 1}`, `.player${(turn + 1) % 2 + 1}`);
           }
+          highlightMe('.btn', '');
+        }
+        else {
+          highlightMe('', '.btn');
         }
       });
       function appendMe(target, content) {
@@ -210,9 +216,12 @@
         appendMe(target, content);
       });
 
-      socket.on('highlight me', function(target, before) {
+      function highlightMe(target, before) {
         $(before).css("background-color", "#FEFAEE");
         $(target).css("background-color", "#FFDF60");
+      }
+      socket.on('highlight me', function(target, before) {
+        highlightMe(target, before);
       });
     </script>
   </body>

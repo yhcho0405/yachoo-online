@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Yachoo Online</title>
+    <title>🎲Yachoo🎲</title>
     <style>
       .no-drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
       body {
@@ -284,15 +284,35 @@
         appendMe('.rollingbtn', `Rolling (${leaveDice}/3)`);
       });
 
-      socket.on('dice update', function(dices) {
-        var dice_text = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
+      const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+      
+      var dice_text = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
+      const rollingRandom = async function(dices) {
+        for(var i = 1; i < 10; i++) {
+          for(var j = 1; j <= 5; j++) {
+            if ($(`#dice${j}`).css('color') == 'rgb(0, 0, 0)') {
+              $(`#dice${j}`).css('margin-top', `${Math.floor(Math.random() * 15) - 8}px`);
+              $(`#dice${j}`).css('margin-left', `${Math.floor(Math.random() * 15) - 8}px`)
+              appendMe(`#dice${j}`, dice_text[Math.floor(Math.random() * 6)]);
+            }
+          }
+          await sleep(70);
+        }
         for(var i = 1; i <= 5; i++) {
           appendMe(`#dice${i}`, dice_text[dices[i - 1] - 1]);
         }
+        console.log(dices);
+      }
+      socket.on('dice update', function(dices) {
+        rollingRandom(dices);
       });
 
       socket.on('server to room client', function() {
         socket.emit('turn over');
+      })
+
+      socket.on('disconnected room user client', function() {
+        socket.emit('disconnected room user server');
       })
     </script>
   </body>

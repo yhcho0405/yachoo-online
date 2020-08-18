@@ -10,7 +10,7 @@ app.get('/',function(req, res){
 });
 
 var count = 1;
-var rooms = 25;
+var rooms = 100;
 var visitors = new Array(rooms);
 for (var i = 0; i <= rooms; i++) {
 	visitors[i] = 0;
@@ -36,10 +36,14 @@ io.on('connection', function(socket) {
 			visitors[isJoin - 1]--;
 			io.emit('room list', rooms, visitors);
 			io.to(isJoin).emit('receive message', `[room ${isJoin}] leave ${name} finish game`);
+			io.to(isJoin).emit('disconnected room user client');
 			io.to(isJoin).emit('draw table', 0);
 		}
 	});
 
+	socket.on('disconnected room user server', function(){
+		turnchk = 1;
+	});
 	socket.on('send message', function(name,text){
 		var msg = name + ' : ' + text;
 		util.log(msg);
@@ -63,7 +67,7 @@ io.on('connection', function(socket) {
 			socket.emit('joined room', isJoin);
 			if (visitors[roomNumber - 1] == 1) {
 				socket.emit('receive message', `[room ${isJoin}] wait another player`);
-				turnchk = 1;
+				turnchk++;
 			}
 			else if (visitors[roomNumber - 1] == 2) {
 				io.to(isJoin).emit('draw table', 1);
@@ -85,6 +89,7 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('append in room', function(target, content) {
+		console.log(name + "app");
 		io.to(isJoin).emit('append me', target, content);
 	});
 
@@ -98,6 +103,7 @@ io.on('connection', function(socket) {
 
 
 	socket.on('roll dice', function(keepDice) {
+		console.log(leaveRoll, turnchk, keepDice);
 		if (turnchk % 2) {
 			leaveRoll--;
 			if (leaveRoll >= 0) {

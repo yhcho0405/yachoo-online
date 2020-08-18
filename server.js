@@ -10,7 +10,7 @@ app.get('/',function(req, res){
 });
 
 var count = 1;
-var rooms = 5;
+var rooms = 25;
 var visitors = new Array(rooms);
 for (var i = 0; i <= rooms; i++) {
 	visitors[i] = 0;
@@ -19,7 +19,7 @@ for (var i = 0; i <= rooms; i++) {
 io.on('connection', function(socket) {
 	var isJoin = 0;
 	socket.join(isJoin);
-	util.log('user connected: ', socket.id);
+	util.log('user connected:    ', socket.id);
 	var name = "user" + count++;
 	io.to(socket.id).emit('change name',name);
 	io.to(socket.id).emit('room list', rooms, visitors);
@@ -49,7 +49,7 @@ io.on('connection', function(socket) {
 		else if (visitors[roomNumber - 1] < 2) {
 			visitors[roomNumber - 1]++;
 			isJoin = roomNumber;
-			util.log(name + " ===== accept join =====");
+			util.log(name + " =====   accept join   =====");
 			socket.leave(0);
 			socket.join(isJoin);
 			socket.emit('receive message', `[system] You joined room ${isJoin}`);
@@ -83,8 +83,8 @@ io.on('connection', function(socket) {
 		io.to(isJoin).emit('highlight me', target, basic);
 	});
 
-	socket.on('css in room', function(elem, prop, value) {
-		io.to(isJoin).emit('css me', elem, prop, value);
+	socket.on('css in room', function(elem, attr, value) {
+		io.to(isJoin).emit('css me', elem, attr, value);
 	});
 });
 

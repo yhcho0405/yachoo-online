@@ -79,8 +79,12 @@ io.on('connection', function(socket) {
 		io.to(isJoin).emit('append me', target, content);
 	});
 
-	socket.on('highlight in room', function(target, before) {
-		io.to(isJoin).emit('highlight me', target, before);
+	socket.on('highlight in room', function(target, basic) {
+		io.to(isJoin).emit('highlight me', target, basic);
+	});
+
+	socket.on('css in room', function(elem, prop, value) {
+		io.to(isJoin).emit('css me', elem, prop, value);
 	});
 });
 

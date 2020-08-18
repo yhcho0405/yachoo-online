@@ -48,13 +48,13 @@
       </form>
     </div>
     <div class="dice_area no-drag">
-      <div class="dices" id="dice1">⚀</div>
-      <div class="dices" id="dice2">⚁</div>
-      <div class="dices" id="dice3">⚂</div>
-      <div class="dices" id="dice4">⚃</div>
-      <div class="dices" id="dice5">⚅</div>
+      <div class="dices" id="dice1"></div>
+      <div class="dices" id="dice2"></div>
+      <div class="dices" id="dice3"></div>
+      <div class="dices" id="dice4"></div>
+      <div class="dices" id="dice5"></div>
     </div>
-    <div class="game_area"></div>
+    <div class="game_area"><button class="rollingbtn" onclick="rollingDice();">Rolling (3/3)</button></div>
     <div class="board_area">
       <h3 class="room_name"></h3>
       <div class="game_table"></div>
@@ -161,19 +161,27 @@
 </tbody>
 </table>
       `;
+      var keepDice = [0, 0, 0, 0, 0];
       var isMyTurn = 0;
       var choiceColor = 'darkorange';
       $('.dices').click(function() {
         if (isMyTurn == 1) {
           if ($(this).css('color') == 'rgb(0, 0, 0)') {
             socket.emit('css in room', '#' + (this.id).toString(), 'color', choiceColor);
+            keepDice[parseInt(this.id.replace("dice", "")) - 1] = 1;
           }
           else {
             socket.emit('css in room', '#' + (this.id).toString(), 'color', 'black');
+            keepDice[parseInt(this.id.replace("dice", "")) - 1] = 0;
           }
         }
+        console.log(keepDice);
       });
       var socket = io();
+
+      function rollingDice() {
+        socket.emit('roll dice', keepDice);
+      }
 
       $('#chat').on('submit', function(e){
         socket.emit('send message', $('#name').val(), $('#message').val());
@@ -214,11 +222,14 @@
       });
 
       function testfunc(turn, del) {
-        $('.game_area').empty();
         $('.btn').removeAttr('onclick');
         $(del).empty();
         socket.emit('test serv', ++turn);
+        keepDice = [0, 0, 0, 0, 0];
         socket.emit('css in room', '.dices', 'color', 'black');
+        socket.emit('append in room', '.dices', '');
+        socket.emit('client to room client');
+        isfirstRoll = 1;
       }
       socket.on('test cli', function(id, turn, name){
         if (id != socket.id) {
@@ -268,6 +279,21 @@
       socket.on('css me', function(elem, attr, value) {
         cssMe(elem, attr, value);
       });
+
+      socket.on('rolled dice', function(leaveDice, tmp) {
+        appendMe('.rollingbtn', `Rolling (${leaveDice}/3)`);
+      });
+
+      socket.on('dice update', function(dices) {
+        var dice_text = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
+        for(var i = 1; i <= 5; i++) {
+          appendMe(`#dice${i}`, dice_text[dices[i - 1] - 1]);
+        }
+      });
+
+      socket.on('server to room client', function() {
+        socket.emit('turn over');
+      })
     </script>
   </body>
 </html>

@@ -18,6 +18,12 @@ for (var i = 0; i <= rooms; i++) {
 
 io.on('connection', function(socket) {
 	var isJoin = 0;
+	var leaveRoll = 3;
+	var dices = [0, 0, 0, 0, 0];
+	var score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	var tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	var turnchk = 0;
+
 	socket.join(isJoin);
 	util.log('user connected:    ', socket.id);
 	var name = "user" + count++;
@@ -57,6 +63,7 @@ io.on('connection', function(socket) {
 			socket.emit('joined room', isJoin);
 			if (visitors[roomNumber - 1] == 1) {
 				socket.emit('receive message', `[room ${isJoin}] wait another player`);
+				turnchk = 1;
 			}
 			else if (visitors[roomNumber - 1] == 2) {
 				io.to(isJoin).emit('draw table', 1);
@@ -72,6 +79,8 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('test serv', function(turn) {
+		leaveRoll = 3;
+		io.to(isJoin).emit('rolled dice', leaveRoll, score);
 		io.to(isJoin).emit('test cli', socket.id, turn, name);
 	});
 
@@ -85,6 +94,35 @@ io.on('connection', function(socket) {
 
 	socket.on('css in room', function(elem, attr, value) {
 		io.to(isJoin).emit('css me', elem, attr, value);
+	});
+
+
+	socket.on('roll dice', function(keepDice) {
+		if (turnchk % 2) {
+			leaveRoll--;
+			if (leaveRoll >= 0) {
+				if (leaveRoll == 2) {
+					for (var i = 0; i < 5; i++) {
+						dices[i] = Math.floor(Math.random() * 6) + 1;
+					}
+				}
+				else {
+					for (var i = 0; i < 5; i++) {
+						if (keepDice[i] == 0)
+							dices[i] = Math.floor(Math.random() * 6) + 1;
+					}
+				}
+				io.to(isJoin).emit('rolled dice', leaveRoll, tmp);
+				io.to(isJoin).emit('dice update', dices);
+				// calc score ()
+			}
+		}
+	});
+	socket.on('client to room client', function() {
+		io.to(isJoin).emit('server to room client');
+	});
+	socket.on('turn over', function() {
+		turnchk++;
 	});
 });
 

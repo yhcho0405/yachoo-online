@@ -23,6 +23,7 @@ io.on('connection', function(socket) {
 	var score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	var tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	var turnchk = 0;
+	var sunhoo;
 
 	socket.join(isJoin);
 	util.log('user connected:    ', socket.id);
@@ -42,7 +43,10 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('disconnected room user server', function(){
+		score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+		tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 		turnchk = 1;
+		sunhoo = 1;
 	});
 	socket.on('send message', function(name,text){
 		var msg = name + ' : ' + text;
@@ -68,11 +72,13 @@ io.on('connection', function(socket) {
 			if (visitors[roomNumber - 1] == 1) {
 				socket.emit('receive message', `[room ${isJoin}] wait another player`);
 				turnchk++;
+				sunhoo = 1;
 			}
 			else if (visitors[roomNumber - 1] == 2) {
 				io.to(isJoin).emit('draw table', 1);
 				io.to(isJoin).emit('test cli', socket.id, 0, name);
 				io.to(isJoin).emit('receive message', `[room ${isJoin}] start game`);
+				sunhoo = 2;
 			}
 		}
 		else {
@@ -88,9 +94,8 @@ io.on('connection', function(socket) {
 		io.to(isJoin).emit('test cli', socket.id, turn, name);
 	});
 
-	socket.on('append in room', function(target, content) {
-		console.log(name + "app");
-		io.to(isJoin).emit('append me', target, content);
+	socket.on('append in room', function(target, content, option, target2, content2) {
+		io.to(isJoin).emit('append me', target, content, option, target2, content2);
 	});
 
 	socket.on('highlight in room', function(target, basic) {
@@ -101,7 +106,81 @@ io.on('connection', function(socket) {
 		io.to(isJoin).emit('css me', elem, attr, value);
 	});
 
+	function calcScore() {
+		// Aces ~ Sixes
+		for (var i = 0; i < 6; i++) {
+			tmp[i] = 0;
+			for (var j = 0; j < 5; j++) {
+				if (dices[j] == i + 1)
+					tmp[i] += i + 1;
+			}
+		}
+		//tmp[6]
 
+		// Choice
+		tmp[7] = 0;
+		for (var i = 0; i < 5; i++) {
+			tmp[7] += dices[i];
+		}
+
+		// 4 of a kind
+		tmp[8] = 0;
+		var fourcardchk = [0, 0, 0, 0, 0, 0];
+		for (var i = 0; i < 5; i++) {
+			fourcardchk[dices[i] - 1]++;
+		}
+		for (var i = 0; i < 6; i++) {
+			if (fourcardchk[i] >= 4) {
+				for (var j = 0; j < 5; j++) {
+					tmp[8] += dices[j];
+				}
+			}
+		}
+
+		// Full House
+		tmp[9] = 0;
+		var fullhousechk = [0, 0, 0, 0, 0, 0, 0, 0];
+		for (var i = 0; i < 5; i++) {
+			fullhousechk[dices[i] - 1]++;
+		}
+		for (var i = 0; i < 6; i++) {
+			if (fullhousechk[i] == 2)
+				fullhousechk[6] = 1;
+			if (fullhousechk[i] == 3)
+				fullhousechk[7] = 1;
+		}
+		if (fullhousechk[6] == 1 && fullhousechk[7] == 1) {
+			for (var i = 0; i < 5; i++)
+				tmp[9] += dices[i];
+		}
+
+		// S. Straight
+		tmp[10] = 0;
+		var SSchk = [0, 0, 0, 0, 0, 0];
+		for (var i = 0; i < 5; i++) {
+			SSchk[dices[i] - 1]++;
+		}
+		if ((SSchk[0] > 0 && SSchk[1] > 0 && SSchk[2] > 0 && SSchk[3] > 0) ||
+			(SSchk[1] > 0 && SSchk[2] > 0 && SSchk[3] > 0 && SSchk[4] > 0) ||
+			(SSchk[2] > 0 && SSchk[3] > 0 && SSchk[4] > 0 && SSchk[5] > 0))
+			tmp[10] = 15;
+
+		// L. Straight
+		tmp[11] = 0;
+		var LSchk = [0, 0, 0, 0, 0, 0];
+		for (var i = 0; i < 5; i++) {
+			LSchk[dices[i] - 1]++;
+		}
+		if ((SSchk[0] > 0 && SSchk[1] > 0 && SSchk[2] > 0 && SSchk[3] > 0 && SSchk[4] > 0) ||
+			(SSchk[1] > 0 && SSchk[2] > 0 && SSchk[3] > 0 && SSchk[4] > 0 && SSchk[5] > 0))
+			tmp[11] = 30;
+
+		// Yachoo
+		tmp[12] = 0;
+		if (dices[0] == dices[1] && dices[1] == dices[2] && dices[2] == dices[3] &&
+			dices[3] == dices[4] && dices[4] == dices[5])
+			tmp[12] = 50;
+	}
 	socket.on('roll dice', function(keepDice) {
 		console.log(leaveRoll, turnchk, keepDice);
 		if (turnchk % 2) {
@@ -118,9 +197,11 @@ io.on('connection', function(socket) {
 							dices[i] = Math.floor(Math.random() * 6) + 1;
 					}
 				}
-				io.to(isJoin).emit('rolled dice', leaveRoll, tmp);
+				calcScore();
+				io.to(isJoin).emit('rolled dice', leaveRoll);
+				console.log(tmp);
+				io.to(isJoin).emit('score update', tmp, sunhoo);
 				io.to(isJoin).emit('dice update', dices);
-				// calc score ()
 			}
 		}
 	});

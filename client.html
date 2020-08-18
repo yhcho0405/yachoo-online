@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Yachoo Online</title>
     <style>
+      .no-drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
       body {
         display: grid;
         grid-template-areas: 
@@ -46,7 +47,7 @@
         <input type="submit" class="chat" value="chat"/>
       </form>
     </div>
-    <div class="dice_area">
+    <div class="dice_area no-drag">
       <div class="dices" id="dice1">⚀</div>
       <div class="dices" id="dice2">⚁</div>
       <div class="dices" id="dice3">⚂</div>
@@ -89,33 +90,33 @@
 <tbody>
   <tr>
     <td class="tg-0lax" id=""><span class="dice_text">⚀</span> Aces</td>
-    <td class="tg-0lax player1 btnplace1" id=""></td>
-    <td class="tg-0lax player2 btnplace2" id=""></td>
+    <td class="tg-0lax player1 btnplace1" id="1-1"></td>
+    <td class="tg-0lax player2 btnplace2" id="1-2"></td>
   </tr>
   <tr>
     <td class="tg-0lax" id=""><span class="dice_text">⚁</span> Deuces</td>
-    <td class="tg-0lax player1 btnplace1" id=""></td>
-    <td class="tg-0lax player2 btnplace2" id=""></td>
+    <td class="tg-0lax player1 btnplace1" id="2-1"></td>
+    <td class="tg-0lax player2 btnplace2" id="2-2"></td>
   </tr>
   <tr>
     <td class="tg-0lax" id=""><span class="dice_text">⚂</span> Threes</td>
-    <td class="tg-0lax player1 btnplace1" id=""></td>
-    <td class="tg-0lax player2 btnplace2" id=""></td>
+    <td class="tg-0lax player1 btnplace1" id="3-1"></td>
+    <td class="tg-0lax player2 btnplace2" id="3-2"></td>
   </tr>
   <tr>
     <td class="tg-0lax" id=""><span class="dice_text">⚃</span> Fours</td>
-    <td class="tg-0lax player1 btnplace1" id=""></td>
-    <td class="tg-0lax player2 btnplace2" id=""></td>
+    <td class="tg-0lax player1 btnplace1" id="4-1"></td>
+    <td class="tg-0lax player2 btnplace2" id="4-2"></td>
   </tr>
   <tr>
     <td class="tg-0lax" id=""><span class="dice_text">⚄</span> Fives</td>
-    <td class="tg-0lax player1 btnplace1" id=""></td>
-    <td class="tg-0lax player2 btnplace2" id=""></td>
+    <td class="tg-0lax player1 btnplace1" id="5-1"></td>
+    <td class="tg-0lax player2 btnplace2" id="5-2"></td>
   </tr>
   <tr>
     <td class="tg-0lax" id=""><span class="dice_text">⚅</span> Sixes</td>
-    <td class="tg-0lax player1 btnplace1" id=""></td>
-    <td class="tg-0lax player2 btnplace2" id=""></td>
+    <td class="tg-0lax player1 btnplace1" id="6-1"></td>
+    <td class="tg-0lax player2 btnplace2" id="6-2"></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">Bonus(+35)</td>
@@ -124,33 +125,33 @@
   </tr>
   <tr>
     <td class="tg-0lax" id="">🃏 Choice</td>
-    <td class="tg-0lax player1 btnplace1" id=""></td>
-    <td class="tg-0lax player2 btnplace2" id=""></td>
+    <td class="tg-0lax player1 btnplace1" id="7-1"></td>
+    <td class="tg-0lax player2 btnplace2" id="7-2"></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🍀 4 of a kind</td>
-    <td class="tg-0lax player1 btnplace1" id=""></td>
-    <td class="tg-0lax player2 btnplace2" id=""></td>
+    <td class="tg-0lax player1 btnplace1" id="8-1"></td>
+    <td class="tg-0lax player2 btnplace2" id="8-2"></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🏠 Full House</td>
-    <td class="tg-0lax player1 btnplace1" id=""></td>
-    <td class="tg-0lax player2 btnplace2" id=""></td>
+    <td class="tg-0lax player1 btnplace1" id="9-1"></td>
+    <td class="tg-0lax player2 btnplace2" id="9-2"></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🀜 S. Straight</td>
-    <td class="tg-0lax player1 btnplace1" id=""></td>
-    <td class="tg-0lax player2 btnplace2" id=""></td>
+    <td class="tg-0lax player1 btnplace1" id="10-1"></td>
+    <td class="tg-0lax player2 btnplace2" id="10-2"></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🀝 L. Straight</td>
-    <td class="tg-0lax player1 btnplace1" id=""></td>
-    <td class="tg-0lax player2 btnplace2" id=""></td>
+    <td class="tg-0lax player1 btnplace1" id="11-1"></td>
+    <td class="tg-0lax player2 btnplace2" id="11-2"></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">🎲 Yachoo</td>
-    <td class="tg-0lax player1 btnplace1" id=""></td>
-    <td class="tg-0lax player2 btnplace2" id=""></td>
+    <td class="tg-0lax player1 btnplace1" id="12-1"></td>
+    <td class="tg-0lax player2 btnplace2" id="12-2"></td>
   </tr>
   <tr>
     <td class="tg-0lax" id="">Total</td>
@@ -160,16 +161,18 @@
 </tbody>
 </table>
       `;
-      
+      var isMyTurn = 0;
+      var choiceColor = 'darkorange';
       $('.dices').click(function() {
-        if ($(this).css('color') == 'rgb(0, 0, 0)') {
-          socket.emit('css in room', '#' + (this.id).toString(), 'color', 'darkorange');
-        }
-        else {
-          socket.emit('css in room', '#' + (this.id).toString(), 'color', 'black');
+        if (isMyTurn == 1) {
+          if ($(this).css('color') == 'rgb(0, 0, 0)') {
+            socket.emit('css in room', '#' + (this.id).toString(), 'color', choiceColor);
+          }
+          else {
+            socket.emit('css in room', '#' + (this.id).toString(), 'color', 'black');
+          }
         }
       });
-
       var socket = io();
 
       $('#chat').on('submit', function(e){
@@ -210,9 +213,12 @@
           $('.game_table').empty();
       });
 
-      function testfunc(turn) {
+      function testfunc(turn, del) {
         $('.game_area').empty();
+        $('.btn').removeAttr('onclick');
+        $(del).empty();
         socket.emit('test serv', ++turn);
+        socket.emit('css in room', '.dices', 'color', 'black');
       }
       socket.on('test cli', function(id, turn, name){
         if (id != socket.id) {
@@ -227,14 +233,16 @@
             testfunc(turn);
           }
           else {
-            $('.game_area').append(`<button onclick="testfunc(${turn});">test</button>`);
+            $('.btn').attr('onclick', `testfunc(${turn}, $(this).parent());`);
             socket.emit('append in room', '#turn', `Turn ${parseInt(turn / 2)}/12`);
             socket.emit('highlight in room', `.player${turn % 2 + 1}`, `.player${(turn + 1) % 2 + 1}`);
           }
           highlightMe('.btn', '');
+          isMyTurn = 1;
         }
         else {
           highlightMe('', '.btn');
+          isMyTurn = 0;
         }
       });
 
@@ -254,11 +262,11 @@
         highlightMe(target, basic);
       });
 
-      function cssMe(elem, prop, value) {
-        $(elem).css(prop, value);
+      function cssMe(elem, attr, value) {
+        $(elem).css(attr, value);
       }
-      socket.on('css me', function(elem, prop, value) {
-        cssMe(elem, prop, value);
+      socket.on('css me', function(elem, attr, value) {
+        cssMe(elem, attr, value);
       });
     </script>
   </body>

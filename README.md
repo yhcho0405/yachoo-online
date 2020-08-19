@@ -15,3 +15,5 @@ bonus total은 언제 업데이트?
 isMyTurn - 수정할까말까
 
 클라이언트에서 값을 조작해 게임진행에 치명적인 이상을 줄만한 코드는 다 서버사이드로 빼둠. (isMyTurn 제외)
+
+(게임 링크)[https://yachoo.herokuapp.com/]

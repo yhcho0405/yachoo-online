@@ -1,6 +1,6 @@
 {
-  "name": "YACHOO",
-  "version": "0.0.0",
+  "name": "yachoo",
+  "version": "1.0.0",
   "description": "Yachoo online",
   "main": "server.js",
   "scripts": {

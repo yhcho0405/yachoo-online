@@ -187,7 +187,7 @@
         if (isMyTurn == 1) {
           if ($(this).css('color') == 'rgb(0, 0, 0)') {
             socket.emit('css in room', '#' + (this.id).toString(), 'color', choiceColor);
-            socket.emit('css in room', '#' + (this.id).toString(), 'font-size', '120px');
+            socket.emit('css in room', '#' + (this.id).toString(), 'font-size', '100px');
             keepDice[parseInt(this.id.replace("dice", "")) - 1] = 1;
           }
           else {

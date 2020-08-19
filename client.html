@@ -35,6 +35,17 @@
       .name{ width: 10%; }
       .message{ width: 70%; }
       .chat{ width: 10%; }
+      footer {
+        position: fixed;
+        z-index: 9999;
+        font-size: 15px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: white;
+        background-color: #333333;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -335,5 +346,8 @@
         socket.emit('disconnected room user server');
       })
     </script>
+    <footer>
+      <p>Copyright © 2020. yhcho0405@kakao.com All rights reserved.</p>
+    </footer>
   </body>
 </html>

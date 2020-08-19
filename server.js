@@ -3,7 +3,6 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var util = require('util');
-var game = require('./game.js');
 
 app.get('/',function(req, res){
  	res.sendFile(__dirname + '/client.html');

@@ -16,7 +16,6 @@
         grid-gap: 5px;
         height: 100vh;
         background-color: rgb(209, 200, 146);
-        margin-bottom: 100px;
       }
       .dice_area {
         display: grid;
@@ -31,7 +30,11 @@
       .btn {color: gray;}
       .chat_area {grid-area: chat; margin-bottom: 20px;}
       .game_area {grid-area: game;}
-      .board_area {grid-area: board;}
+      .board_area {grid-area: board; margin-bottom: 100px;}
+      .board_area::-webkit-scrollbar {
+        width: 0px;
+        background-color: rgb(209, 200, 146);
+      }
       .room_name {margin: 0px;}
       .chat_log{ width: 95%; height: 200px; }
       .name{ width: 10%; }
@@ -74,7 +77,7 @@
       <div class="dices" id="dice5"></div>
     </div>
     <div class="game_area"><button class="rollingbtn" onclick="rollingDice();">Rolling (3/3)</button></div>
-    <div class="board_area">
+    <div class="board_area" style="overflow:scroll; width:300px; height:100%; margin-bottom: 30px;">
       <h3 class="room_name"></h3>
       <div class="game_table"></div>
       <al class="roomlist"></al>

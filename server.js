@@ -20,8 +20,8 @@ io.on('connection', function(socket) {
 	var isJoin = 0;
 	var leaveRoll = 3;
 	var dices = [0, 0, 0, 0, 0];
-	var score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-	var tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	var score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	var tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	var turnchk = 0;
 	var sunhoo;
 
@@ -44,7 +44,7 @@ io.on('connection', function(socket) {
 
 	socket.on('disconnected room user server', function(){
 		score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-		tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+		tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 		turnchk = 1;
 		sunhoo = 1;
 	});
@@ -204,6 +204,24 @@ io.on('connection', function(socket) {
 				io.to(isJoin).emit('dice update', dices);
 			}
 		}
+	});
+	socket.on('pick score', function(index, id) {
+		score[index - 1] = tmp[index - 1];
+		io.to(isJoin).emit('append me', `#${id}`, `<b>${score[index - 1]}</b>`);
+		score[6] = 0;
+		for (var i = 0; i < 6; i++) {
+			score[6] += score[i];
+		}
+		score[13] = score[6];
+		for(var i = 7; i < 13; i++) {
+			score[13] += score[i];
+		}
+		if (score[6] >= 63) {
+			score[13] += 35;
+		}
+		io.to(isJoin).emit('append me', `#bonus-${sunhoo}`, `<b>${score[6]}/63</b>`);
+		console.log(score[13]);
+		io.to(isJoin).emit('append me', `#total-${sunhoo}`, `<b>${score[13]}</b>`);
 	});
 	socket.on('client to room client', function() {
 		io.to(isJoin).emit('server to room client');

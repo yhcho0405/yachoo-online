@@ -170,10 +170,12 @@
         if (isMyTurn == 1) {
           if ($(this).css('color') == 'rgb(0, 0, 0)') {
             socket.emit('css in room', '#' + (this.id).toString(), 'color', choiceColor);
+            socket.emit('css in room', '#' + (this.id).toString(), 'background-color', 'maroon');
             keepDice[parseInt(this.id.replace("dice", "")) - 1] = 1;
           }
           else {
             socket.emit('css in room', '#' + (this.id).toString(), 'color', 'black');
+            socket.emit('css in room', '#' + (this.id).toString(), 'background-color', 'rgb(209, 200, 146)');
             keepDice[parseInt(this.id.replace("dice", "")) - 1] = 0;
           }
         }

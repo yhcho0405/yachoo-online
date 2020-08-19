@@ -182,7 +182,7 @@ io.on('connection', function(socket) {
 			tmp[12] = 50;
 	}
 	socket.on('roll dice', function(keepDice) {
-		console.log(leaveRoll, turnchk, keepDice);
+		// console.log(leaveRoll, turnchk, keepDice);
 		if (turnchk % 2) {
 			leaveRoll--;
 			if (leaveRoll >= 0) {
@@ -199,7 +199,7 @@ io.on('connection', function(socket) {
 				}
 				calcScore();
 				io.to(isJoin).emit('rolled dice', leaveRoll);
-				console.log(tmp);
+				// console.log(tmp);
 				io.to(isJoin).emit('score update', tmp, sunhoo);
 				io.to(isJoin).emit('dice update', dices);
 			}
@@ -220,7 +220,6 @@ io.on('connection', function(socket) {
 			score[13] += 35;
 		}
 		io.to(isJoin).emit('append me', `#bonus-${sunhoo}`, `<b>${score[6]}/63</b>`);
-		console.log(score[13]);
 		io.to(isJoin).emit('append me', `#total-${sunhoo}`, `<b>${score[13]}</b>`);
 	});
 	socket.on('client to room client', function() {

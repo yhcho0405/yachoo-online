@@ -15,6 +15,7 @@
         grid-template-columns: 300px 1fr;
         grid-gap: 5px;
         height: 100vh;
+        background-color: rgb(209, 200, 146);
       }
       .dice_area {
         display: grid;
@@ -37,14 +38,19 @@
       .chat{ width: 10%; }
       footer {
         position: fixed;
+        height: 30px;
         z-index: 9999;
-        font-size: 15px;
+        font-size: 10px;
         bottom: 0;
         left: 0;
         right: 0;
         color: white;
         background-color: #333333;
         text-align: center;
+      }
+      .rollingbtn {
+        width: 100px;
+        height: 50px;
       }
     </style>
   </head>
@@ -181,12 +187,12 @@
         if (isMyTurn == 1) {
           if ($(this).css('color') == 'rgb(0, 0, 0)') {
             socket.emit('css in room', '#' + (this.id).toString(), 'color', choiceColor);
-            socket.emit('css in room', '#' + (this.id).toString(), 'background-color', 'maroon');
+            socket.emit('css in room', '#' + (this.id).toString(), 'font-size', '120px');
             keepDice[parseInt(this.id.replace("dice", "")) - 1] = 1;
           }
           else {
             socket.emit('css in room', '#' + (this.id).toString(), 'color', 'black');
-            socket.emit('css in room', '#' + (this.id).toString(), 'background-color', 'rgb(209, 200, 146)');
+            socket.emit('css in room', '#' + (this.id).toString(), 'font-size', '80px');
             keepDice[parseInt(this.id.replace("dice", "")) - 1] = 0;
           }
         }
@@ -240,6 +246,7 @@
         $('.btn').removeAttr('onclick');
         keepDice = [0, 0, 0, 0, 0];
         socket.emit('css in room', '.dices', 'color', 'black');
+        socket.emit('css in room', '.dices', 'font-size', '80px');
         socket.emit('append in room', '.dices', '');
         socket.emit('client to room client');
         if (parent != undefined) {

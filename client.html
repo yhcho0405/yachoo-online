@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175895424-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-175895424-1');
+    </script>
     <meta charset="utf-8">
     <title>🎲Yachoo🎲</title>
     <style>
@@ -55,6 +64,7 @@
       .rollingbtn {
         width: 100px;
         height: 50px;
+        display: none;
       }
     </style>
   </head>
@@ -235,6 +245,7 @@
       });
 
       socket.on('joined room', function(roomNumber){
+        cssMe('.rollingbtn', 'display', 'block')
         $('.room_name').append(`Room ${roomNumber}`);
         $('.roomlist').remove();
       });
@@ -351,11 +362,11 @@
 
       socket.on('server to room client', function() {
         socket.emit('turn over');
-      })
+      });
 
-      socket.on('disconnected room user client', function() {
-        socket.emit('disconnected room user server');
-      })
+      socket.on('game over', function() {
+        socket.emit('check score');
+      });
     </script>
     <footer>
       <p>Copyright © 2020. yhcho0405@kakao.com All rights reserved.</p>

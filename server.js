@@ -90,7 +90,16 @@ io.on('connection', function(socket) {
 	socket.on('test serv', function(turn) {
 		leaveRoll = 3;
 		io.to(isJoin).emit('rolled dice', leaveRoll, score);
-		io.to(isJoin).emit('test cli', socket.id, turn, name);
+		if (parseInt(turn / 2) < 13)
+			io.to(isJoin).emit('test cli', socket.id, turn, name);
+		else {
+			io.to(isJoin).emit('receive message', `[room ${isJoin}] !!!!!! game over !!!!!`);
+			io.to(isJoin).emit('game over');
+		}
+	});
+
+	socket.on('check score', function() {
+		io.to(isJoin).emit('receive message', `[room ${isJoin}] ${name}'s Total score : ${score[13]}`);
 	});
 
 	socket.on('append in room', function(target, content, option, target2, content2) {

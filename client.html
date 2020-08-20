@@ -245,7 +245,7 @@
       });
 
       socket.on('joined room', function(roomNumber){
-        cssMe('.rollingbtn', 'display', 'block')
+        cssMe('.rollingbtn', 'display', 'block');
         $('.room_name').append(`Room ${roomNumber}`);
         $('.roomlist').remove();
       });

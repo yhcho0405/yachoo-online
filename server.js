@@ -185,8 +185,7 @@ io.on('connection', function(socket) {
 
 		// Yachoo
 		tmp[12] = 0;
-		if (dices[0] == dices[1] && dices[1] == dices[2] && dices[2] == dices[3] &&
-			dices[3] == dices[4] && dices[4] == dices[5])
+		if (dices[0] == dices[1] && dices[1] == dices[2] && dices[2] == dices[3] && dices[3] == dices[4])
 			tmp[12] = 50;
 	}
 	socket.on('roll dice', function(keepDice) {

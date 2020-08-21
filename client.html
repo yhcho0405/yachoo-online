@@ -16,15 +16,20 @@
       .no-drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
       body {
         display: grid;
+        overflow-y:hidden;
         grid-template-areas: 
         "board dice"
         "board game"
         "board chat";
-        grid-template-rows: 90px 1fr 300px;
+        grid-template-rows: 90px 50px 1fr;
         grid-template-columns: 300px 1fr;
         grid-gap: 5px;
         height: 100vh;
         background-color: rgb(209, 200, 146);
+      }
+      button {
+        border-radius: 5px;
+        border: 1px;
       }
       .dice_area {
         display: grid;
@@ -38,6 +43,7 @@
       }
       .btn {color: gray;}
       .chat_area {grid-area: chat; margin-bottom: 20px;}
+      .chat_text_area {height: 70%;}
       .game_area {grid-area: game;}
       .board_area {grid-area: board; margin-bottom: 100px;}
       .board_area::-webkit-scrollbar {
@@ -45,10 +51,10 @@
         background-color: rgb(209, 200, 146);
       }
       .room_name {margin: 0px;}
-      .chat_log{ width: 95%; height: 200px; }
-      .name{ width: 10%; }
-      .message{ width: 70%; }
-      .chat{ width: 10%; }
+      .chat_area{ width: 100%; height: 100%;}
+      .name{ width: 10%;}
+      .message{ width: 65%;}
+      .chat{ width: 15%;}
       footer {
         position: fixed;
         height: 30px;
@@ -62,16 +68,16 @@
         text-align: center;
       }
       .rollingbtn {
-        width: 100px;
-        height: 50px;
+        width: 100%;
+        height: 40px;
         display: none;
       }
     </style>
   </head>
   <body>
     <div class="chat_area">
-      <div>
-        <textarea id="chatLog" class="chat_log" readonly></textarea>
+      <div class="chat_text_area">
+        <textarea id="chatLog" class="chat_log" style="width:95%; height:95%;" readonly></textarea>
       </div>
       <form id="chat">
         <input id="name" class="name" type="text" readonly>
@@ -190,6 +196,9 @@
     <td class="tg-1lax" id="">Total</td>
     <td class="tg-0lax player1" index="14" id="total-1">0</td>
     <td class="tg-0lax player2" index="14" id="total-2">0</td>
+  </tr>
+  <tr>
+    <td class="tg-1lax" colspan="3" style="height:50px; text-align: center; font-size: 25px;">YACHOO</td>
   </tr>
 </tbody>
 </table>

@@ -203,7 +203,9 @@
 </tbody>
 </table>
       `;
+      $('body').css('overflow-y', 'none');
       $('body').scrollTop(0);
+      $('body').css('overflow-y', 'hidden');
       var keepDice = [0, 0, 0, 0, 0];
       var isMyTurn = 0;
       var choiceColor = 'darkorange';
@@ -238,7 +240,9 @@
       socket.on('receive message', function(msg){
         $('#chatLog').append(msg+'\n');
         $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight);
+        $('body').css('overflow-y', 'none');
         $('body').scrollTop(0);
+        $('body').css('overflow-y', 'hidden');
       });
 
       socket.on('change name', function(name){

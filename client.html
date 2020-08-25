@@ -383,6 +383,10 @@
       socket.on('game over', function() {
         socket.emit('check score');
       });
+
+      socket.on('disconnected room user client', function() {
+        socket.emit('disconnected room user server');
+      });
     </script>
     <footer>
       <p>Copyright © 2020. yhcho0405@kakao.com All rights reserved.</p>

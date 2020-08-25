@@ -44,7 +44,7 @@ io.on('connection', function(socket) {
 	socket.on('disconnected room user server', function(){
 		score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 		tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-		turnchk = 1;
+		turnchk++;
 		sunhoo = 1;
 	});
 	socket.on('send message', function(name,text){
@@ -70,7 +70,7 @@ io.on('connection', function(socket) {
 			socket.emit('joined room', isJoin);
 			if (visitors[roomNumber - 1] == 1) {
 				socket.emit('receive message', `[room ${isJoin}] wait another player`);
-				turnchk = 1;
+				turnchk++;
 				sunhoo = 1;
 			}
 			else if (visitors[roomNumber - 1] == 2) {

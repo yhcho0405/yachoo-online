@@ -70,7 +70,7 @@ io.on('connection', function(socket) {
 			socket.emit('joined room', isJoin);
 			if (visitors[roomNumber - 1] == 1) {
 				socket.emit('receive message', `[room ${isJoin}] wait another player`);
-				turnchk++;
+				turnchk = 1;
 				sunhoo = 1;
 			}
 			else if (visitors[roomNumber - 1] == 2) {

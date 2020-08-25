@@ -44,7 +44,7 @@ io.on('connection', function(socket) {
 	socket.on('disconnected room user server', function(){
 		score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 		tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-		turnchk++;
+		turnchk = 0;
 		sunhoo = 1;
 	});
 	socket.on('send message', function(name,text){

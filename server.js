@@ -10,6 +10,7 @@ app.get('/',function(req, res){
 
 var count = 1;
 var rooms = 100;
+var isCheat = 0;
 var visitors = new Array(rooms);
 for (var i = 0; i <= rooms; i++) {
 	visitors[i] = 0;
@@ -47,10 +48,30 @@ io.on('connection', function(socket) {
 		turnchk = 1;
 		sunhoo = 1;
 	});
+
+	function chkVaildNum(num) {
+		for(var i = 0; i < 5; i++) {
+			if (1 > parseInt(num[i]) || 6 < parseInt(num[i])) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	socket.on('send message', function(name,text){
-		var msg = name + ' : ' + text;
-		util.log(msg);
-		io.to(isJoin).emit('receive message', msg);
+		if (text.substring(0, 7) == "diceset"){
+			if (text.length == 13 && text.substring(0, 7) == "diceset" && chkVaildNum(text.substring(7, 12)) && text[12] == "!") {
+				util.log(name + " ##cheat## " + text);
+				isCheat = 1;
+				for(var i = 0; i < 5; i++) {
+					dices[i] = parseInt(text[i + 7]);
+				}
+			}
+		} else {
+			var msg = name + ' : ' + text;
+			util.log(msg);
+			io.to(isJoin).emit('receive message', msg);
+		}
 	});
 
 	socket.on('join room', function(roomNumber) {
@@ -193,17 +214,20 @@ io.on('connection', function(socket) {
 		if (turnchk % 2) {
 			leaveRoll--;
 			if (leaveRoll >= 0) {
-				if (leaveRoll == 2) {
-					for (var i = 0; i < 5; i++) {
-						dices[i] = Math.floor(Math.random() * 6) + 1;
-					}
-				}
-				else {
-					for (var i = 0; i < 5; i++) {
-						if (keepDice[i] == 0)
+				if (!isCheat) {
+					if (leaveRoll == 2) {
+						for (var i = 0; i < 5; i++) {
 							dices[i] = Math.floor(Math.random() * 6) + 1;
+						}
+					}
+					else {
+						for (var i = 0; i < 5; i++) {
+							if (keepDice[i] == 0)
+								dices[i] = Math.floor(Math.random() * 6) + 1;
+						}
 					}
 				}
+				isCheat = 0;
 				calcScore();
 				io.to(isJoin).emit('rolled dice', leaveRoll);
 				// console.log(tmp);

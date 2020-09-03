@@ -10,7 +10,10 @@ app.get('/',function(req, res){
 
 var count = 1;
 var rooms = 100;
+
+// delete cheat
 var isCheat = 0;
+
 var visitors = new Array(rooms);
 for (var i = 0; i <= rooms; i++) {
 	visitors[i] = 0;
@@ -49,6 +52,7 @@ io.on('connection', function(socket) {
 		sunhoo = 1;
 	});
 
+// delete cheat
 	function chkVaildNum(num) {
 		for(var i = 0; i < 5; i++) {
 			if (1 > parseInt(num[i]) || 6 < parseInt(num[i])) {
@@ -73,7 +77,13 @@ io.on('connection', function(socket) {
 			io.to(isJoin).emit('receive message', msg);
 		}
 	});
-
+/* delete cheat
+	socket.on('send message', function(name,text){
+		var msg = name + ' : ' + text;
+		util.log(msg);
+		io.to(isJoin).emit('receive message', msg);
+	});
+*/
 	socket.on('join room', function(roomNumber) {
 		util.log(name + " ===== approach room " + roomNumber + " =====");
 		if (isJoin) {
@@ -236,6 +246,32 @@ io.on('connection', function(socket) {
 			}
 		}
 	});
+/* delete cheat
+	socket.on('roll dice', function(keepDice) {
+		// console.log(leaveRoll, turnchk, keepDice);
+		if (turnchk % 2) {
+			leaveRoll--;
+			if (leaveRoll >= 0) {
+				if (leaveRoll == 2) {
+					for (var i = 0; i < 5; i++) {
+						dices[i] = Math.floor(Math.random() * 6) + 1;
+					}
+				}
+				else {
+					for (var i = 0; i < 5; i++) {
+						if (keepDice[i] == 0)
+							dices[i] = Math.floor(Math.random() * 6) + 1;
+					}
+				}
+				calcScore();
+				io.to(isJoin).emit('rolled dice', leaveRoll);
+				// console.log(tmp);
+				io.to(isJoin).emit('score update', tmp, sunhoo);
+				io.to(isJoin).emit('dice update', dices);
+			}
+		}
+	});
+*/
 	socket.on('pick score', function(index, id) {
 		score[index - 1] = tmp[index - 1];
 		io.to(isJoin).emit('append me', `#${id}`, `<b>${score[index - 1]}</b>`);

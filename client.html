@@ -72,6 +72,9 @@
         height: 40px;
         display: none;
       }
+      .hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -94,7 +97,7 @@
     </div>
     <div class="game_area">
       <button class="rollingbtn" onclick="rollingDice();">Rolling (3/3)</button>
-      <button onclick="location.reload();">Exit Game</button>
+      <button class="hidden" onclick="location.reload();">Exit Game</button>
     </div>
     <div class="board_area" style="overflow:scroll; width:300px; height:100%; margin-bottom: 30px;">
       <h3 class="room_name"></h3>
@@ -264,6 +267,7 @@
 
       socket.on('joined room', function(roomNumber){
         cssMe('.rollingbtn', 'display', 'block');
+        cssMe('.hidden', 'display', 'block');
         $('.room_name').append(`Room ${roomNumber}`);
         $('.roomlist').remove();
       });

@@ -21,7 +21,7 @@
         "board dice"
         "board game"
         "board chat";
-        grid-template-rows: 90px 50px 1fr;
+        grid-template-rows: 90px 60px 1fr;
         grid-template-columns: 300px 1fr;
         grid-gap: 5px;
         height: 100vh;
@@ -92,7 +92,10 @@
       <div class="dices" id="dice4"></div>
       <div class="dices" id="dice5"></div>
     </div>
-    <div class="game_area"><button class="rollingbtn" onclick="rollingDice();">Rolling (3/3)</button></div>
+    <div class="game_area">
+      <button class="rollingbtn" onclick="rollingDice();">Rolling (3/3)</button>
+      <button onclick="location.reload();">Exit Game</button>
+    </div>
     <div class="board_area" style="overflow:scroll; width:300px; height:100%; margin-bottom: 30px;">
       <h3 class="room_name"></h3>
       <div class="game_table"></div>

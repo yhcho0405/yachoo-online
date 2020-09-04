@@ -27,12 +27,13 @@ io.on('connection', function(socket) {
 	var tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	var turnchk = 0;
 	var sunhoo;
-
+	
 	socket.join(isJoin);
 	util.log('user connected:    ', socket.id);
 	var name = "user" + count++;
 	io.to(socket.id).emit('change name',name);
 	io.to(socket.id).emit('room list', rooms, visitors);
+	io.to(isJoin).emit('receive message', `[server] join ${name}`);
 
 	socket.on('disconnect', function(){
 		util.log('user disconnected: ', socket.id);
@@ -100,20 +101,20 @@ io.on('connection', function(socket) {
 			io.to(isJoin).emit('receive message', `[room ${isJoin}] join ${name}`);
 			socket.emit('joined room', isJoin);
 			if (visitors[roomNumber - 1] == 1) {
-				socket.emit('receive message', `[room ${isJoin}] wait another player`);
+				socket.emit('receive message', `[room ${isJoin}] 다른 플레이어를 기다리는 중..`);
+				socket.emit('receive message', `[room ${isJoin}] 플레이어가 2명이 되면 자동으로 게임이 시작됩니다.`);
 				turnchk++;
 				sunhoo = 1;
 			}
 			else if (visitors[roomNumber - 1] == 2) {
 				io.to(isJoin).emit('draw table', 1);
 				io.to(isJoin).emit('test cli', socket.id, 0, name);
-				io.to(isJoin).emit('receive message', `[room ${isJoin}] start game`);
+				io.to(isJoin).emit('receive message', `[room ${isJoin}] 게임을 시작합니다.`);
 				sunhoo = 2;
 			}
 		}
 		else {
 			socket.emit('receive message', `[system] room ${roomNumber} is full`);
-			util.log(name + " ===== room " + roomNumber + " is full =====");
 		}
 		io.emit('room list', rooms, visitors);
 	});

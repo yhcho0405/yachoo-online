@@ -43,6 +43,7 @@ io.on('connection', function(socket) {
 			io.to(isJoin).emit('receive message', `[room ${isJoin}] leave ${name} finish game`);
 			io.to(isJoin).emit('disconnected room user client');
 			io.to(isJoin).emit('draw table', 0);
+			io.to(isJoin).emit('receive message', `!@#$exit show!@#$`);
 		}
 	});
 
@@ -110,6 +111,7 @@ io.on('connection', function(socket) {
 				io.to(isJoin).emit('draw table', 1);
 				io.to(isJoin).emit('test cli', socket.id, 0, name);
 				io.to(isJoin).emit('receive message', `[room ${isJoin}] 게임을 시작합니다.`);
+				io.to(isJoin).emit('receive message', "!@#$exit hidden!@#$");
 				sunhoo = 2;
 			}
 		}
@@ -126,6 +128,7 @@ io.on('connection', function(socket) {
 			io.to(isJoin).emit('test cli', socket.id, turn, name);
 		else {
 			io.to(isJoin).emit('receive message', `[room ${isJoin}] !!!!!! game over !!!!!`);
+			io.to(isJoin).emit('receive message', "!@#$exit show!@#$");
 			io.to(isJoin).emit('game over');
 		}
 	});

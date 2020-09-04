@@ -244,11 +244,17 @@
       });
 
       socket.on('receive message', function(msg){
-        $('#chatLog').append(msg+'\n');
-        $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight);
-       // $('body').css('overflow-y', 'none');
-        $(window).scrollTop(0);
-       // $('body').css('overflow-y', 'hidden');
+        if (msg == "!@#$exit show!@#$") {
+          cssMe('.hidden', 'display', 'block');
+        } else if (msg == "!@#$exit hidden!@#$") {
+          cssMe('.hidden', 'display', 'none');
+        } else {
+          $('#chatLog').append(msg+'\n');
+          $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight);
+        // $('body').css('overflow-y', 'none');
+          $(window).scrollTop(0);
+        // $('body').css('overflow-y', 'hidden');
+        } 
       });
 
       socket.on('change name', function(name){

@@ -11,7 +11,7 @@ app.get('/',function(req, res){
 var count = 1;
 var rooms = 100;
 
-// delete cheat
+// [Ctrl + f] delete cheat
 var isCheat = 0;
 
 var visitors = new Array(rooms);
@@ -29,14 +29,14 @@ io.on('connection', function(socket) {
 	var sunhoo;
 	
 	socket.join(isJoin);
-	util.log('user connected:    ', socket.id);
 	var name = "user" + count++;
+	util.log('user connected:    ', name);
 	io.to(socket.id).emit('change name',name);
 	io.to(socket.id).emit('room list', rooms, visitors);
 	io.to(isJoin).emit('receive message', `[server] join ${name}`);
 
 	socket.on('disconnect', function(){
-		util.log('user disconnected: ', socket.id);
+		util.log('user disconnected: ', name);
 		if (isJoin) {
 			visitors[isJoin - 1]--;
 			io.emit('room list', rooms, visitors);
@@ -67,7 +67,7 @@ io.on('connection', function(socket) {
 	socket.on('send message', function(name,text){
 		if (text.substring(0, 7) == "diceset"){
 			if (text.length == 13 && text.substring(0, 7) == "diceset" && chkVaildNum(text.substring(7, 12)) && text[12] == "!") {
-				util.log(name + " ##cheat## " + text);
+				util.log(name + " use cheat " + text);
 				isCheat = 1;
 				for(var i = 0; i < 5; i++) {
 					dices[i] = parseInt(text[i + 7]);
@@ -87,15 +87,13 @@ io.on('connection', function(socket) {
 	});
 */
 	socket.on('join room', function(roomNumber) {
-		util.log(name + " ===== approach room " + roomNumber + " =====");
 		if (isJoin) {
 			socket.emit('receive message', `[system] You already joined room ${isJoin}`);
-			util.log(name + " =====already joined room " + isJoin + " =====");
 		}
 		else if (visitors[roomNumber - 1] < 2) {
 			visitors[roomNumber - 1]++;
 			isJoin = roomNumber;
-			util.log(name + " =====   accept join   =====");
+			util.log(name + " join room" + roomNumber);
 			socket.leave(0);
 			socket.join(isJoin);
 			socket.emit('receive message', `[system] You joined room ${isJoin}`);
@@ -304,5 +302,4 @@ io.on('connection', function(socket) {
 const { PORT=3000, LOCAL_ADDRESS='0.0.0.0' } = process.env
 http.listen(PORT, LOCAL_ADDRESS, () => {
   const address = http.address();
-  util.log('server listening at', address);
 });

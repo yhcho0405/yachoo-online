@@ -51,7 +51,7 @@ io.on('connection', function(socket) {
 		if (isJoin) {
 			visitors[isJoin - 1]--;
 			io.emit('room list', rooms, visitors);
-			io.to(isJoin).emit('receive message', `[room ${isJoin}] leave ${name} finish game`);
+			io.to(isJoin).emit('receive message', `[room ${isJoin}] ${name}이(가) 게임을 떠났습니다. 게임이 종료됩니다.`);
 			io.to(isJoin).emit('disconnected room user client');
 			io.to(isJoin).emit('draw table', 0);
 			io.to(isJoin).emit('receive message', `!@#$exit show!@#$`);
@@ -110,8 +110,8 @@ io.on('connection', function(socket) {
 			console.log(name + " join room" + roomNumber);
 			socket.leave(0);
 			socket.join(isJoin);
-			socket.emit('receive message', `[system] You joined room ${isJoin}`);
-			io.to(isJoin).emit('receive message', `[room ${isJoin}] join ${name}`);
+			socket.emit('receive message', `[system] room ${isJoin}에 접속했습니다.`);
+			io.to(isJoin).emit('receive message', `[room ${isJoin}] ${name}이(가) 참가했습니다.`);
 			socket.emit('joined room', isJoin);
 			if (visitors[roomNumber - 1] == 1) {
 				socket.emit('receive message', `[room ${isJoin}] 다른 플레이어를 기다리는 중..`);

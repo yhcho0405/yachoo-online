@@ -4,9 +4,11 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var util = require('util');
 
+const sleep = require("http");
+
 /* Prevent Sleep in Heroku Server */
 setInterval(function () {
-	http.get("http://yachoo.herokuapp.com");
+	sleep.get("http://yachoo.herokuapp.com");
   }, 10000); // every 20 minutes
 
 app.get('/',function(req, res){

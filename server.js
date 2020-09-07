@@ -7,7 +7,7 @@ var util = require('util');
 /* Prevent Sleep in Heroku Server */
 setInterval(function () {
 	http.get("http://yachoo.herokuapp.com");
-  }, 1200000); // every 20 minutes
+  }, 10000); // every 20 minutes
 
 app.get('/',function(req, res){
  	res.sendFile(__dirname + '/client.html');

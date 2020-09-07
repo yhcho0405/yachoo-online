@@ -1,0 +1,642 @@
+2020-09-07T08:48:43.000000+00:00 app[api]: Build succeeded
+2020-09-07T08:48:49.014882+00:00 app[web.1]: 
+2020-09-07T08:48:49.014910+00:00 app[web.1]: > yachoo@1.0.0 start /app
+2020-09-07T08:48:49.014910+00:00 app[web.1]: > node server.js
+2020-09-07T08:48:49.014911+00:00 app[web.1]: 
+2020-09-07T08:48:51.181750+00:00 app[web.1]: (1)user connected:     user1
+2020-09-07T08:48:51.392034+00:00 app[web.1]: user1 join room1
+2020-09-07T08:49:02.173220+00:00 app[web.1]: user1 use cheat !diceset 1234
+2020-09-07T08:50:10.811143+00:00 app[web.1]: (0)user disconnected:  user1
+2020-09-07T08:50:13.171921+00:00 app[web.1]: (1)user connected:     user2
+2020-09-07T08:50:42.693623+00:00 app[web.1]: (2)user connected:     user3
+2020-09-07T08:50:57.449795+00:00 app[web.1]: user2 join room1
+2020-09-07T08:50:58.753136+00:00 app[web.1]: user3 join room1
+2020-09-07T08:51:09.184371+00:00 app[web.1]: (1)user disconnected:  user2
+2020-09-07T08:51:09.968887+00:00 app[web.1]: (0)user disconnected:  user3
+2020-09-07T08:51:12.506912+00:00 app[web.1]: (1)user connected:     user4
+2020-09-07T08:51:30.274284+00:00 app[web.1]: (2)user connected:     user5
+2020-09-07T08:51:49.060272+00:00 app[web.1]: user5 join room1
+2020-09-07T08:51:54.712127+00:00 app[web.1]: user4 : ㅎㅇ
+2020-09-07T08:51:58.515869+00:00 app[web.1]: user4 join room1
+2020-09-07T08:52:01.406951+00:00 app[web.1]: user4 : ㅎㅇ
+2020-09-07T08:52:05.143575+00:00 app[web.1]: user5 : ㅎㅇ
+2020-09-07T08:52:09.311686+00:00 app[web.1]: user5 : 이�� 첨해보느넫
+2020-09-07T08:52:12.518737+00:00 app[web.1]: user5 : 어케한느거야
+2020-09-07T08:52:19.643921+00:00 app[web.1]: user4 : 나도 오늘 첨임
+2020-09-07T08:52:23.931538+00:00 app[web.1]: user4 : 야추 모름?
+2020-09-07T08:52:30.087302+00:00 app[web.1]: user5 : 룰은 아는데
+2020-09-07T08:52:32.384968+00:00 app[web.1]: user5 : 이걸로 첨해봐
+2020-09-07T08:52:34.159032+00:00 app[web.1]: user5 : 룰은 다알어
+2020-09-07T08:52:36.961182+00:00 app[web.1]: user4 : 그대로 하면 댐
+2020-09-07T08:52:43.810284+00:00 app[web.1]: user4 : 오ㅋㅋ
+2020-09-07T08:52:49.641097+00:00 app[web.1]: user5 : 이거 떳는데
+2020-09-07T08:52:50.737644+00:00 app[web.1]: user4 : 초심자의 행운인가
+2020-09-07T08:52:54.022621+00:00 app[web.1]: user5 : 그담에 어캐해야데ㅐ
+2020-09-07T08:52:58.790783+00:00 app[web.1]: user4 : 야추 버튼있잖아
+2020-09-07T08:52:59.511474+00:00 app[web.1]: user4 : ㅇㅇㅇ
+2020-09-07T08:53:01.502596+00:00 app[web.1]: user5 : 아하 일케하는거구나
+2020-09-07T08:53:13.831113+00:00 app[web.1]: user5 : 까비
+2020-09-07T09:00:16.279236+00:00 app[web.1]: user4 : ㅋㅋ
+2020-09-07T09:00:17.744175+00:00 app[web.1]: user4 : 졌다
+2020-09-07T09:00:25.272414+00:00 app[web.1]: user5 : 너 왤케
+2020-09-07T09:00:29.007392+00:00 app[web.1]: user5 : 운이 없엉
+2020-09-07T09:00:36.411636+00:00 app[web.1]: user4 : 와
+2020-09-07T09:00:39.002901+00:00 app[web.1]: user4 : 판단미스
+2020-09-07T09:00:41.895125+00:00 app[web.1]: user4 : 심지어ㅋㅋ
+2020-09-07T09:00:53.177550+00:00 app[web.1]: (1)user disconnected:  user5
+2020-09-07T09:00:53.419247+00:00 app[web.1]: (2)user connected:     user6
+2020-09-07T09:01:01.799180+00:00 app[web.1]: user6 join room1
+2020-09-07T09:01:47.152955+00:00 app[web.1]: (3)user connected:     user7
+2020-09-07T09:01:53.909650+00:00 app[web.1]: (4)user connected:     user8
+2020-09-07T09:01:57.452165+00:00 app[web.1]: user7 join room2
+2020-09-07T09:02:00.356462+00:00 app[web.1]: user8 join room2
+2020-09-07T09:02:11.124205+00:00 app[web.1]: user7 :
+2020-09-07T09:03:00.886587+00:00 app[web.1]: user8 : zz
+2020-09-07T09:03:02.396150+00:00 app[web.1]: user8 : ㅋㅋ
+2020-09-07T09:03:25.899073+00:00 app[web.1]: user7 : 어예
+2020-09-07T09:03:41.209601+00:00 app[web.1]: user8 : 님 이거 어케알게됨
+2020-09-07T09:03:47.145528+00:00 app[web.1]: user7 : 나무위키서 보고옴
+2020-09-07T09:04:35.336540+00:00 app[web.1]: user7 : 이걸 라스를 노렸네 ㄷ
+2020-09-07T09:04:38.748284+00:00 app[web.1]: user8 : ㅋㅋㅋ
+2020-09-07T09:05:19.143292+00:00 app[web.1]: user7 : 아 ㅅㅂ
+2020-09-07T09:05:22.215272+00:00 app[web.1]: user8 : ㅋㅋㅋㅋ
+2020-09-07T09:05:22.337968+00:00 app[web.1]: user7 : 이게 말이되?
+2020-09-07T09:05:25.330080+00:00 app[web.1]: user8 : 야추할까
+2020-09-07T09:05:29.887102+00:00 app[web.1]: user8 : sixes에 박을까
+2020-09-07T09:05:40.863045+00:00 app[web.1]: user7 : 야추박아주라
+2020-09-07T09:05:43.735247+00:00 app[web.1]: user7 : 차라리
+2020-09-07T09:06:00.936205+00:00 app[web.1]: user7 : 이게 풀하가 안뜨네
+2020-09-07T09:07:02.637137+00:00 app[web.1]: user7 : 야 스스가
+2020-09-07T09:07:06.076188+00:00 app[web.1]: user7 : 조건이 머였지?
+2020-09-07T09:07:09.473777+00:00 app[web.1]: user8 : 4개
+2020-09-07T09:07:10.502284+00:00 app[web.1]: user8 : 일껄
+2020-09-07T09:07:20.666731+00:00 app[web.1]: user8 : 4개 연속
+2020-09-07T09:07:25.338570+00:00 app[web.1]: user8 : 못봤나?
+2020-09-07T09:07:30.122050+00:00 app[web.1]: user8 : 아까 각나왔었냐
+2020-09-07T09:07:39.211764+00:00 app[web.1]: user6 : 조졌다
+2020-09-07T09:07:44.931304+00:00 app[web.1]: user4 : 나도임
+2020-09-07T09:07:45.557953+00:00 app[web.1]: user4 : ㅋㅋ
+2020-09-07T09:07:55.411768+00:00 app[web.1]: user7 : 일단 풀하 최대점은 받았는데
+2020-09-07T09:08:00.068185+00:00 app[web.1]: user7 : 야추 뜨려나
+2020-09-07T09:08:55.395683+00:00 app[web.1]: user7 : 1라때 잘못해서
+2020-09-07T09:09:03.914083+00:00 app[web.1]: user7 : 1기방패 망했네 ㅋㅋ
+2020-09-07T09:09:29.992892+00:00 app[web.1]: user7 : 미션 페일...
+2020-09-07T09:09:45.044944+00:00 app[web.1]: user8 : ㅋㅋㅋ
+2020-09-07T09:09:57.768381+00:00 app[web.1]: user7 : 아 이게 왜 안떠;;
+2020-09-07T09:10:04.894072+00:00 app[web.1]: user8 : ㅋㅋㅋㅋㅋㅋ
+2020-09-07T09:10:31.171921+00:00 app[web.1]: user6 : 마지막이다
+2020-09-07T09:10:36.731722+00:00 app[web.1]: user6 : 여기서 야추에 건다
+2020-09-07T09:10:37.448695+00:00 app[web.1]: user7 : 야추나오면 이긴다
+2020-09-07T09:10:38.603088+00:00 app[web.1]: user7 : 가즈아
+2020-09-07T09:10:39.254608+00:00 app[web.1]: user4 : ㅋㅋㅋ
+2020-09-07T09:10:57.775918+00:00 app[web.1]: user7 : 시벨
+2020-09-07T09:11:02.516593+00:00 app[web.1]: user8 : ㅋㅋㅋㅋㅋㅋㅋㅋ
+2020-09-07T09:11:03.844745+00:00 app[web.1]: user8 : 리?
+2020-09-07T09:11:06.007899+00:00 app[web.1]: user7 : 리겜해
+2020-09-07T09:11:17.999698+00:00 app[web.1]: user7 : 아 장난하지마 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+2020-09-07T09:11:18.430340+00:00 app[web.1]: user8 : ㄱㄷ
+2020-09-07T09:11:27.509893+00:00 app[web.1]: user7 : ?
+2020-09-07T09:11:28.913737+00:00 app[web.1]: user4 : 리겜ㄱㄱ
+2020-09-07T09:11:29.257763+00:00 app[web.1]: (3)user disconnected:  user6
+2020-09-07T09:11:29.499069+00:00 app[web.1]: (4)user connected:     user9
+2020-09-07T09:11:31.345707+00:00 app[web.1]: (3)user disconnected:  user4
+2020-09-07T09:11:31.537502+00:00 app[web.1]: (2)user disconnected:  user8
+2020-09-07T09:11:31.646710+00:00 app[web.1]: (3)user connected:     user10
+2020-09-07T09:11:31.823320+00:00 app[web.1]: (4)user connected:     user11
+2020-09-07T09:11:39.514791+00:00 app[web.1]: user9 join room2
+2020-09-07T09:11:43.586847+00:00 app[web.1]: user7 : 머여
+2020-09-07T09:11:45.501919+00:00 app[web.1]: user7 : 너냐?
+2020-09-07T09:11:48.875081+00:00 app[web.1]: user9 : 먼소리야
+2020-09-07T09:12:56.981291+00:00 app[web.1]: user7 : 전판 애인줄
+2020-09-07T09:13:40.516213+00:00 app[web.1]: user7 : 휴
+2020-09-07T09:13:42.360380+00:00 app[web.1]: user7 : 풀하인줄
+2020-09-07T09:14:39.186147+00:00 app[web.1]: user9 : 에바지
+2020-09-07T09:14:42.402271+00:00 app[web.1]: user9 : ㅇ베지ㅏ
+2020-09-07T09:14:44.667378+00:00 app[web.1]: user7 : ㅇ 개꿀
+2020-09-07T09:14:46.739133+00:00 app[web.1]: user7 : 전판 진거
+2020-09-07T09:14:48.227811+00:00 app[web.1]: user7 : 바로 오네 ㅋ
+2020-09-07T09:15:04.738657+00:00 app[web.1]: user7 : 라스 또 안됫쥬
+2020-09-07T09:15:14.099039+00:00 app[web.1]: user9 : 에바지
+2020-09-07T09:15:23.898244+00:00 app[web.1]: user9 : 에ㅐㅂ
+2020-09-07T09:15:24.738840+00:00 app[web.1]: user9 : 에바
+2020-09-07T09:15:30.812981+00:00 app[web.1]: user7 : 포~카
+2020-09-07T09:15:42.644292+00:00 app[web.1]: user7 : 라스 ㅋㅋ
+2020-09-07T09:15:45.266281+00:00 app[web.1]: user7 : 너의 승리다
+2020-09-07T09:16:14.155056+00:00 app[web.1]: user7 : 아 포카 천천히 할걸~
+2020-09-07T09:17:05.790879+00:00 app[web.1]: user7 : ?
+2020-09-07T09:17:08.304145+00:00 app[web.1]: user7 : 멀 노린겨
+2020-09-07T09:17:14.114633+00:00 app[web.1]: user9 : 나도 모르겟어
+2020-09-07T09:18:22.039890+00:00 app[web.1]: user7 : 라~스
+2020-09-07T09:18:41.450284+00:00 app[web.1]: user9 : 망겜
+2020-09-07T09:19:23.932855+00:00 app[web.1]: user7 : ㅋㅋㅋㅋㅋ
+2020-09-07T09:19:35.652947+00:00 app[web.1]: user7 : 휴
+2020-09-07T09:19:46.572756+00:00 app[web.1]: user7 : 일단 상체 탈락이구
+2020-09-07T09:20:13.475145+00:00 app[web.1]: user9 : 야추각 떳냐
+2020-09-07T09:20:16.923707+00:00 app[web.1]: user7 : ㅇ 들어가
+2020-09-07T09:20:19.380899+00:00 app[web.1]: user7 : 4카나 먹어
+2020-09-07T09:20:20.547616+00:00 app[web.1]: user9 : ㅅㅂ
+2020-09-07T09:20:40.515499+00:00 app[web.1]: user7 : 아 이게 스스 안뜨네 ㅋ
+2020-09-07T09:20:57.513881+00:00 app[web.1]: user7 : ㅇ 안돼
+2020-09-07T09:21:00.292098+00:00 app[web.1]: (3)user disconnected:  user9
+2020-09-07T09:21:00.779994+00:00 app[web.1]: (4)user connected:     user12
+2020-09-07T09:21:05.810541+00:00 app[web.1]: user12 join room2
+2020-09-07T09:21:07.000000+00:00 app[api]: Build started by user yhcho0405@kakao.com
+2020-09-07T09:21:16.267792+00:00 app[web.1]: user7 : 아 쉬바
+2020-09-07T09:21:19.914713+00:00 app[web.1]: user7 : 왜 더블클릭돼 ㅋㅋㅋ
+2020-09-07T09:21:21.825098+00:00 app[api]: Release v51 created by user yhcho0405@kakao.com
+2020-09-07T09:21:21.825098+00:00 app[api]: Deploy 13f19894 by user yhcho0405@kakao.com
+2020-09-07T09:21:22.000000+00:00 app[api]: Build succeeded
+2020-09-07T09:21:22.322316+00:00 app[web.1]: user12 : ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+2020-09-07T09:21:26.632530+00:00 app[web.1]: 
+2020-09-07T09:21:26.632549+00:00 app[web.1]: > yachoo@1.0.0 start /app
+2020-09-07T09:21:26.632550+00:00 app[web.1]: > node server.js
+2020-09-07T09:21:26.632550+00:00 app[web.1]: 
+2020-09-07T09:21:28.143490+00:00 app[web.1]: (1)user connected:     user1
+2020-09-07T09:21:28.146747+00:00 app[web.1]: (2)user connected:     user2
+2020-09-07T09:21:28.181813+00:00 app[web.1]: (3)user connected:     user3
+2020-09-07T09:21:28.394761+00:00 app[web.1]: user12 : 먼뎈ㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+2020-09-07T09:21:28.450357+00:00 app[web.1]: (4)user connected:     user4
+2020-09-07T09:21:36.397141+00:00 app[web.1]: user2 : 왜 안돌아가!
+2020-09-07T09:21:49.032884+00:00 app[web.1]: user2 : 아놔 망겜
+2020-09-07T09:21:50.520460+00:00 app[web.1]: (3)user disconnected:  user2
+2020-09-07T09:21:50.855407+00:00 app[web.1]: (4)user connected:     user5
+2020-09-07T09:21:53.924086+00:00 app[web.1]: user1 : 어
+2020-09-07T09:21:55.623684+00:00 app[web.1]: user1 : 방금
+2020-09-07T09:21:58.776777+00:00 app[web.1]: user5 join room1
+2020-09-07T09:21:58.894134+00:00 app[web.1]: user1 : 서버업뎃한듯
+2020-09-07T09:22:03.550964+00:00 app[web.1]: user1 : 유저 1로바뀜
+2020-09-07T09:22:04.036491+00:00 app[web.1]: user3 : 오
+2020-09-07T09:22:08.708294+00:00 app[web.1]: user3 : 나 3이네
+2020-09-07T09:22:19.591218+00:00 app[web.1]: user1 : 방 1
+2020-09-07T09:22:24.496446+00:00 app[web.1]: user1 : ㄱ
+2020-09-07T09:22:27.627835+00:00 app[web.1]: (3)user disconnected:  user5
+2020-09-07T09:22:27.929065+00:00 app[web.1]: (4)user connected:     user6
+2020-09-07T09:22:31.376511+00:00 app[web.1]: (3)user disconnected:  user3
+2020-09-07T09:22:32.169231+00:00 app[web.1]: (4)user connected:     user7
+2020-09-07T09:22:32.303188+00:00 app[web.1]: (3)user disconnected:  user6
+2020-09-07T09:22:32.561244+00:00 app[web.1]: (4)user connected:     user8
+2020-09-07T09:22:34.705324+00:00 app[web.1]: user7 join room1
+2020-09-07T09:22:35.725967+00:00 app[web.1]: user1 : 서버
+2020-09-07T09:22:36.954721+00:00 app[web.1]: user8 join room2
+2020-09-07T09:22:42.325475+00:00 app[web.1]: (3)user disconnected:  user1
+2020-09-07T09:22:42.614397+00:00 app[web.1]: (4)user connected:     user9
+2020-09-07T09:22:45.957413+00:00 app[web.1]: (3)user disconnected:  user7
+2020-09-07T09:22:46.210570+00:00 app[web.1]: (4)user connected:     user10
+2020-09-07T09:22:48.092238+00:00 app[web.1]: user9 : 서버업뎃했네
+2020-09-07T09:22:51.113771+00:00 app[web.1]: user10 join room2
+2020-09-07T09:23:07.073974+00:00 app[web.1]: user8 : ㅎㅇ
+2020-09-07T09:23:11.770003+00:00 app[web.1]: user10 : ㅎㅇ
+2020-09-07T09:23:14.768183+00:00 app[web.1]: user10 : 첨부터 라스를
+2020-09-07T09:23:23.521605+00:00 app[web.1]: user8 : 쩌ㅓㅂ
+2020-09-07T09:23:58.712527+00:00 app[web.1]: user8 : ㅇ 초각
+2020-09-07T09:24:24.953646+00:00 app[web.1]: user8 : 냠냠
+2020-09-07T09:24:57.200179+00:00 app[web.1]: user10 : 미치겟다
+2020-09-07T09:25:24.006725+00:00 app[web.1]: user8 : ㅋㅋㅋ
+2020-09-07T09:25:49.328651+00:00 app[web.1]: user10 : 진짜
+2020-09-07T09:26:30.600854+00:00 app[web.1]: user10 : 생각하고있니
+2020-09-07T09:26:34.033194+00:00 app[web.1]: (3)user disconnected:  user4
+2020-09-07T09:26:34.333450+00:00 app[web.1]: (4)user connected:     user11
+2020-09-07T09:26:35.828857+00:00 app[web.1]: user8 : 엄크엿어
+2020-09-07T09:26:47.535927+00:00 app[web.1]: user11 : ㅎㅇ
+2020-09-07T09:27:06.333494+00:00 app[web.1]: user10 : 이이잉
+2020-09-07T09:27:07.883177+00:00 app[web.1]: user8 : 결국 라스 뽑네 ㅋㅋ
+2020-09-07T09:27:35.513661+00:00 app[web.1]: (3)user disconnected:  user9
+2020-09-07T09:28:12.684290+00:00 app[web.1]: user8 : 뒷빨먼데 ㅋㅋ
+2020-09-07T09:28:25.496633+00:00 app[web.1]: user10 : 솔직히 나도 놀랐다
+2020-09-07T09:28:44.648267+00:00 app[web.1]: user8 : 상체 조졌누 ㅋㅋㅋ
+2020-09-07T09:29:37.142324+00:00 app[web.1]: user8 : 아 제발;;
+2020-09-07T09:31:08.900289+00:00 app[web.1]: (2)user disconnected:  user11
+2020-09-07T09:31:09.147049+00:00 app[web.1]: (3)user connected:     user12
+2020-09-07T09:31:41.706757+00:00 app[web.1]: user12 :
+2020-09-07T09:31:46.325890+00:00 app[web.1]: (2)user disconnected:  user12
+2020-09-07T09:31:46.566133+00:00 app[web.1]: (3)user connected:     user13
+2020-09-07T09:31:53.668036+00:00 app[web.1]: user8 : 나 머해샤 ㅋㅋㅋ
+2020-09-07T09:31:58.217491+00:00 app[web.1]: user10 : ㅋㅋㅋㅋㅋ
+2020-09-07T09:32:03.641212+00:00 app[web.1]: user10 : 아까 2 넣지
+2020-09-07T09:32:08.015660+00:00 app[web.1]: user8 : ㅅㅂ 야추뜨면 할만했다 ㅋㅋ
+2020-09-07T09:32:31.537934+00:00 app[web.1]: user8 : 아뉘!
+2020-09-07T09:32:45.841419+00:00 app[web.1]: user10 : 라스를 뺏었네
+2020-09-07T09:32:46.363284+00:00 app[web.1]: user8 : 라스 포기하니 또 이리 주네
+2020-09-07T09:32:59.492167+00:00 app[web.1]: user10 : ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+2020-09-07T09:33:07.041009+00:00 app[web.1]: user8 : ㅅㅂ 풀하 13점 먼데
+2020-09-07T09:33:51.727958+00:00 app[web.1]: user8 : ???
+2020-09-07T09:33:57.363169+00:00 app[web.1]: user8 : 왜 66고정 안됨
+2020-09-07T09:34:44.689068+00:00 app[web.1]: user10 : 여기서 야추뜨면 너가 이김
+2020-09-07T09:35:02.046977+00:00 app[web.1]: user8 : 시불..
+2020-09-07T09:35:08.559850+00:00 app[web.1]: user10 : ㅎㅎ
+2020-09-07T09:35:12.869782+00:00 app[web.1]: [room 2] user10's Total score : 121
+2020-09-07T09:35:13.656062+00:00 app[web.1]: [room 2] user8's Total score : 103
+2020-09-07T09:35:15.386873+00:00 app[web.1]: (2)user disconnected:  user10
+2020-09-07T09:35:15.634745+00:00 app[web.1]: (3)user connected:     user14
+2020-09-07T09:35:20.357950+00:00 app[web.1]: user14 join room2
+2020-09-07T09:35:30.870518+00:00 app[web.1]: user14 : ㅁㅊ
+2020-09-07T09:35:40.511117+00:00 app[web.1]: user8 : 라스 나오지 쩝
+2020-09-07T09:35:59.198678+00:00 app[web.1]: user8 : ㅋㅋㅋㅋㅋ
+2020-09-07T09:36:16.753989+00:00 app[web.1]: user14 : ㅅㅂ
+2020-09-07T09:36:17.822008+00:00 app[web.1]: user8 : 엌 ㅋ
+2020-09-07T09:36:19.096729+00:00 app[web.1]: (2)user disconnected:  user13
+2020-09-07T09:36:19.352115+00:00 app[web.1]: (3)user connected:     user15
+2020-09-07T09:36:19.485389+00:00 app[web.1]: user14 : 이게 게임이냐
+2020-09-07T09:36:30.481701+00:00 app[web.1]: user8 : 포카 노렸는데 ㅋㅋ
+2020-09-07T09:36:49.348833+00:00 app[web.1]: user14 : 휴
+2020-09-07T09:36:49.390921+00:00 app[web.1]: user8 : 머 ���도 잘하네
+2020-09-07T09:37:21.951765+00:00 app[web.1]: user8 : ㅅㅂ ㅋㅋㅋ
+2020-09-07T09:37:25.028435+00:00 app[web.1]: user8 : 최대 풀하누
+2020-09-07T09:37:32.517227+00:00 app[web.1]: user14 : 에바지
+2020-09-07T09:38:12.106244+00:00 app[web.1]: user8 : ?
+2020-09-07T09:38:16.658397+00:00 app[web.1]: user8 : 스스 굳이?
+2020-09-07T09:39:38.571634+00:00 app[web.1]: user8 : 와 포카나오면
+2020-09-07T09:39:40.029701+00:00 app[web.1]: user8 : 욕할뻔
+2020-09-07T09:39:43.492970+00:00 app[web.1]: user14 : ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+2020-09-07T09:39:54.237530+00:00 app[web.1]: user14 : 나도 욕할뻔
+2020-09-07T09:41:20.623330+00:00 app[web.1]: user8 : 라스 버려
+2020-09-07T09:41:22.367640+00:00 app[web.1]: user8 : 걍
+2020-09-07T09:41:59.346786+00:00 app[web.1]: user14 : 뭐야ㅐ 나 1뻇었네
+2020-09-07T09:42:18.601021+00:00 app[web.1]: user8 : 휴 살았다
+2020-09-07T09:42:20.842349+00:00 app[web.1]: user8 : 포카가 뜨네
+2020-09-07T09:42:40.765508+00:00 app[web.1]: user14 : 야추!
+2020-09-07T09:42:41.406585+00:00 app[web.1]: user8 : ㅅㅂ ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+2020-09-07T09:43:06.949113+00:00 app[web.1]: user8 : 아 젠장 왜저래
+2020-09-07T09:43:13.229232+00:00 app[web.1]: user8 : 포카가 또 뜨네
+2020-09-07T09:43:30.788165+00:00 app[web.1]: user8 : ?
+2020-09-07T09:43:31.748386+00:00 app[web.1]: user8 : 머함
+2020-09-07T09:43:35.084149+00:00 app[web.1]: user8 : 포카 왜 넣어
+2020-09-07T09:43:43.861703+00:00 app[web.1]: user14 : 아 5넣을껄 그럤나
+2020-09-07T09:43:51.036254+00:00 app[web.1]: user8 : 일단 한번 더 돌리고
+2020-09-07T09:43:53.491655+00:00 app[web.1]: user8 : 4카 넣지 ㅋㅋ
+2020-09-07T09:43:57.075659+00:00 app[web.1]: user8 : 나머지 1이든데
+2020-09-07T09:44:28.747274+00:00 app[web.1]: user8 : 아 농담하지마
+2020-09-07T09:44:32.375524+00:00 app[web.1]: user8 : 보너스는 제발 먹지마
+2020-09-07T09:44:46.296348+00:00 app[web.1]: user14 : 오씟
+2020-09-07T09:44:47.018783+00:00 app[web.1]: user8 : 제발 4 나오지 마세요
+2020-09-07T09:44:50.107139+00:00 app[web.1]: user8 : 이길수 잇어요
+2020-09-07T09:45:04.330807+00:00 app[web.1]: [room 2] user14's Total score : 222
+2020-09-07T09:45:04.332592+00:00 app[web.1]: [room 2] user8's Total score : 228
+2020-09-07T09:45:04.873905+00:00 app[web.1]: user8 : ㅇ?
+2020-09-07T09:45:06.869646+00:00 app[web.1]: user14 : ㅅㅂ
+2020-09-07T09:45:06.906471+00:00 app[web.1]: user8 : 휴
+2020-09-07T09:45:07.829941+00:00 app[web.1]: user14 : 까비
+2020-09-07T09:45:09.515307+00:00 app[web.1]: user8 : 이걸이기네
+2020-09-07T09:45:10.534103+00:00 app[web.1]: (2)user disconnected:  user14
+2020-09-07T09:45:10.758278+00:00 app[web.1]: (3)user connected:     user16
+2020-09-07T09:45:15.384595+00:00 app[web.1]: (2)user disconnected:  user8
+2020-09-07T09:45:52.466030+00:00 app[web.1]: user15 :
+2020-09-07T09:45:56.259055+00:00 app[web.1]: (1)user disconnected:  user15
+2020-09-07T09:45:57.062333+00:00 app[web.1]: (2)user connected:     user17
+2020-09-07T09:46:36.127273+00:00 app[web.1]: (1)user disconnected:  user17
+2020-09-07T09:58:44.198666+00:00 app[web.1]: (0)user disconnected:  user16
+2020-09-07T10:00:24.589821+00:00 app[web.1]: (1)user connected:     user18
+2020-09-07T10:00:33.320487+00:00 app[web.1]: user18 join room78
+2020-09-07T10:00:53.388994+00:00 app[web.1]: (0)user disconnected:  user18
+2020-09-07T10:15:37.847249+00:00 app[web.1]: (1)user connected:     user19
+2020-09-07T10:15:38.046434+00:00 app[web.1]: (2)user connected:     user20
+2020-09-07T10:15:40.334379+00:00 app[web.1]: (3)user connected:     user21
+2020-09-07T10:15:42.373353+00:00 app[web.1]: (4)user connected:     user22
+2020-09-07T10:15:44.452730+00:00 app[web.1]: (5)user connected:     user23
+2020-09-07T10:15:46.375262+00:00 app[web.1]: (6)user connected:     user24
+2020-09-07T10:15:48.331216+00:00 app[web.1]: (7)user connected:     user25
+2020-09-07T10:15:50.316227+00:00 app[web.1]: (8)user connected:     user26
+2020-09-07T10:15:53.968500+00:00 app[web.1]: (9)user connected:     user27
+2020-09-07T10:15:57.546857+00:00 app[web.1]: (10)user connected:     user28
+2020-09-07T10:15:58.212409+00:00 app[web.1]: user19 join room1
+2020-09-07T10:15:59.402490+00:00 app[web.1]: user20 join room1
+2020-09-07T10:16:01.215842+00:00 app[web.1]: user21 join room2
+2020-09-07T10:16:02.720053+00:00 app[web.1]: user22 join room2
+2020-09-07T10:16:04.877635+00:00 app[web.1]: user23 join room4
+2020-09-07T10:16:07.028310+00:00 app[web.1]: user24 join room4
+2020-09-07T10:16:09.367018+00:00 app[web.1]: user25 join room6
+2020-09-07T10:16:11.210283+00:00 app[web.1]: user26 join room6
+2020-09-07T10:16:13.653636+00:00 app[web.1]: user27 join room7
+2020-09-07T10:16:15.778333+00:00 app[web.1]: user28 join room7
+2020-09-07T10:16:21.326026+00:00 app[web.1]: (11)user connected:     user29
+2020-09-07T10:16:23.406938+00:00 app[web.1]: (12)user connected:     user30
+2020-09-07T10:16:38.347505+00:00 app[web.1]: user29 join room5
+2020-09-07T10:16:40.281994+00:00 app[web.1]: user30 join room5
+2020-09-07T10:16:44.090351+00:00 app[web.1]: (13)user connected:     user31
+2020-09-07T10:16:46.050420+00:00 app[web.1]: (14)user connected:     user32
+2020-09-07T10:16:52.136446+00:00 app[web.1]: user31 join room3
+2020-09-07T10:16:53.865664+00:00 app[web.1]: user32 join room3
+2020-09-07T10:16:57.446095+00:00 app[web.1]: (15)user connected:     user33
+2020-09-07T10:17:00.114178+00:00 app[web.1]: (16)user connected:     user34
+2020-09-07T10:17:02.920131+00:00 app[web.1]: user33 join room9
+2020-09-07T10:17:05.085825+00:00 app[web.1]: user34 join room9
+2020-09-07T10:17:14.549148+00:00 app[web.1]: (17)user connected:     user35
+2020-09-07T10:17:16.480601+00:00 app[web.1]: (18)user connected:     user36
+2020-09-07T10:17:21.277108+00:00 app[web.1]: user36 join room12
+2020-09-07T10:17:24.953725+00:00 app[web.1]: user35 join room12
+2020-09-07T10:17:48.913417+00:00 app[web.1]: user36 : ----------------------------
+2020-09-07T10:18:51.412854+00:00 app[web.1]: user36 : -----------18-----------
+2020-09-07T10:53:00.754625+00:00 app[web.1]: 
+2020-09-07T10:53:00.754668+00:00 app[web.1]: > yachoo@1.0.0 start /app
+2020-09-07T10:53:00.754669+00:00 app[web.1]: > node server.js
+2020-09-07T10:53:00.754669+00:00 app[web.1]: 
+2020-09-07T10:53:02.572672+00:00 app[web.1]: (1)user connected:     user1
+2020-09-07T10:53:02.699229+00:00 app[web.1]: (2)user connected:     user2
+2020-09-07T10:53:02.703667+00:00 app[web.1]: (3)user connected:     user3
+2020-09-07T10:53:02.705989+00:00 app[web.1]: (4)user connected:     user4
+2020-09-07T10:53:02.710738+00:00 app[web.1]: (5)user connected:     user5
+2020-09-07T10:53:02.730742+00:00 app[web.1]: (6)user connected:     user6
+2020-09-07T10:53:02.818197+00:00 app[web.1]: (7)user connected:     user7
+2020-09-07T10:53:02.901652+00:00 app[web.1]: (8)user connected:     user8
+2020-09-07T10:53:02.907485+00:00 app[web.1]: (9)user connected:     user9
+2020-09-07T10:53:02.909693+00:00 app[web.1]: (10)user connected:     user10
+2020-09-07T10:53:02.919241+00:00 app[web.1]: (11)user connected:     user11
+2020-09-07T10:53:03.019916+00:00 app[web.1]: (12)user connected:     user12
+2020-09-07T10:53:03.120591+00:00 app[web.1]: (13)user connected:     user13
+2020-09-07T10:53:03.308260+00:00 app[web.1]: (14)user connected:     user14
+2020-09-07T10:53:03.325701+00:00 app[web.1]: (15)user connected:     user15
+2020-09-07T10:53:03.356740+00:00 app[web.1]: (16)user connected:     user16
+2020-09-07T10:53:03.817871+00:00 app[web.1]: (17)user connected:     user17
+2020-09-07T10:53:04.361126+00:00 app[web.1]: (18)user connected:     user18
+2020-09-07T10:54:58.629830+00:00 app[web.1]: (19)user connected:     user19
+2020-09-07T10:55:10.353037+00:00 app[web.1]: (20)user connected:     user20
+2020-09-07T10:55:32.240017+00:00 app[web.1]: user20 join room1
+2020-09-07T10:55:33.819196+00:00 app[web.1]: user19 join room1
+2020-09-07T10:58:11.136403+00:00 app[web.1]: (21)user connected:     user21
+2020-09-07T10:58:20.632967+00:00 app[web.1]: (20)user disconnected:  user17
+2020-09-07T10:58:20.924136+00:00 app[web.1]: (21)user connected:     user22
+2020-09-07T10:58:21.934324+00:00 app[web.1]: (20)user disconnected:  user14
+2020-09-07T10:58:22.234909+00:00 app[web.1]: (21)user connected:     user23
+2020-09-07T10:58:23.150032+00:00 app[web.1]: (20)user disconnected:  user7
+2020-09-07T10:58:23.533804+00:00 app[web.1]: (21)user connected:     user24
+2020-09-07T10:58:24.290932+00:00 app[web.1]: (20)user disconnected:  user15
+2020-09-07T10:58:24.699445+00:00 app[web.1]: (21)user connected:     user25
+2020-09-07T10:58:25.312151+00:00 app[web.1]: (20)user disconnected:  user6
+2020-09-07T10:58:25.599745+00:00 app[web.1]: (21)user connected:     user26
+2020-09-07T10:58:26.446272+00:00 app[web.1]: (20)user disconnected:  user13
+2020-09-07T10:58:26.736882+00:00 app[web.1]: (21)user connected:     user27
+2020-09-07T10:58:27.943968+00:00 app[web.1]: (20)user disconnected:  user18
+2020-09-07T10:58:28.214567+00:00 app[web.1]: (21)user connected:     user28
+2020-09-07T10:58:29.479212+00:00 app[web.1]: (20)user disconnected:  user2
+2020-09-07T10:58:29.762206+00:00 app[web.1]: (21)user connected:     user29
+2020-09-07T10:58:37.812897+00:00 app[web.1]: (20)user disconnected:  user12
+2020-09-07T10:58:38.668907+00:00 app[web.1]: (19)user disconnected:  user22
+2020-09-07T10:58:38.917301+00:00 app[web.1]: (18)user disconnected:  user23
+2020-09-07T10:58:39.161264+00:00 app[web.1]: (17)user disconnected:  user24
+2020-09-07T10:58:39.344946+00:00 app[web.1]: (16)user disconnected:  user25
+2020-09-07T10:58:39.558645+00:00 app[web.1]: (15)user disconnected:  user26
+2020-09-07T10:58:39.962654+00:00 app[web.1]: (14)user disconnected:  user27
+2020-09-07T10:58:40.348921+00:00 app[web.1]: (13)user disconnected:  user28
+2020-09-07T10:58:40.735982+00:00 app[web.1]: (12)user disconnected:  user29
+2020-09-07T10:58:40.944746+00:00 app[web.1]: (11)user disconnected:  user3
+2020-09-07T10:58:41.134696+00:00 app[web.1]: (10)user disconnected:  user5
+2020-09-07T10:58:41.333427+00:00 app[web.1]: (9)user disconnected:  user4
+2020-09-07T10:58:41.538088+00:00 app[web.1]: (8)user disconnected:  user11
+2020-09-07T10:58:41.998494+00:00 app[web.1]: (7)user disconnected:  user1
+2020-09-07T10:58:42.153777+00:00 app[web.1]: (6)user disconnected:  user8
+2020-09-07T10:58:42.223254+00:00 app[web.1]: (5)user disconnected:  user10
+2020-09-07T10:58:42.324131+00:00 app[web.1]: (4)user disconnected:  user9
+2020-09-07T10:58:44.215532+00:00 app[web.1]: (3)user disconnected:  user21
+2020-09-07T10:58:44.537585+00:00 app[web.1]: (4)user connected:     user30
+2020-09-07T10:58:45.240231+00:00 app[web.1]: (3)user disconnected:  user16
+2020-09-07T10:58:45.530675+00:00 app[web.1]: (4)user connected:     user31
+2020-09-07T10:58:53.956232+00:00 app[web.1]: (3)user disconnected:  user30
+2020-09-07T10:58:54.255996+00:00 app[web.1]: (4)user connected:     user32
+2020-09-07T10:59:20.819473+00:00 app[web.1]: (3)user disconnected:  user32
+2020-09-07T11:00:42.613800+00:00 app[web.1]: (2)user disconnected:  user31
+2020-09-07T11:00:43.253384+00:00 app[web.1]: (3)user connected:     user33
+2020-09-07T11:03:37.285366+00:00 app[web.1]: [room 1] user20's Total score : 123
+2020-09-07T11:03:37.318984+00:00 app[web.1]: [room 1] user19's Total score : 221
+2020-09-07T11:03:41.868873+00:00 app[web.1]: (2)user disconnected:  user19
+2020-09-07T11:03:42.212048+00:00 app[web.1]: (3)user connected:     user34
+2020-09-07T11:03:49.626789+00:00 app[web.1]: user34 join room99
+2020-09-07T11:03:59.003874+00:00 app[web.1]: (2)user disconnected:  user20
+2020-09-07T11:03:59.308920+00:00 app[web.1]: (3)user connected:     user35
+2020-09-07T11:04:02.039276+00:00 app[web.1]: user35 join room99
+2020-09-07T11:10:43.368666+00:00 app[web.1]: (2)user disconnected:  user33
+2020-09-07T11:10:43.636177+00:00 app[web.1]: (3)user connected:     user36
+2020-09-07T11:11:11.697900+00:00 app[web.1]: (4)user connected:     user37
+2020-09-07T11:11:13.097869+00:00 app[web.1]: (3)user disconnected:  user37
+2020-09-07T11:11:24.021506+00:00 app[web.1]: user36 : ㅎㅇ
+2020-09-07T11:11:35.363167+00:00 app[web.1]: user36 :
+2020-09-07T11:12:15.569012+00:00 app[web.1]: [room 99] user34's Total score : 136
+2020-09-07T11:12:15.571073+00:00 app[web.1]: [room 99] user35's Total score : 120
+2020-09-07T11:12:21.438059+00:00 app[web.1]: (2)user disconnected:  user34
+2020-09-07T11:12:21.751603+00:00 app[web.1]: (3)user connected:     user38
+2020-09-07T11:12:22.327887+00:00 app[web.1]: (2)user disconnected:  user35
+2020-09-07T11:12:22.577967+00:00 app[web.1]: (3)user connected:     user39
+2020-09-07T11:12:25.695463+00:00 app[web.1]: user38 join room50
+2020-09-07T11:12:26.077912+00:00 app[web.1]: user39 join room50
+2020-09-07T11:13:40.880052+00:00 app[web.1]: user36 join room1
+2020-09-07T11:13:42.852110+00:00 app[web.1]: user36 :
+2020-09-07T11:13:45.749471+00:00 app[web.1]: (2)user disconnected:  user36
+2020-09-07T11:13:50.365000+00:00 app[web.1]: (3)user connected:     user40
+2020-09-07T11:13:51.428489+00:00 app[web.1]: user40 :
+2020-09-07T11:13:56.628131+00:00 app[web.1]: (2)user disconnected:  user40
+2020-09-07T11:13:56.897158+00:00 app[web.1]: (3)user connected:     user41
+2020-09-07T11:14:18.667568+00:00 app[web.1]: user41 join room26
+2020-09-07T11:14:46.395768+00:00 app[web.1]: (4)user connected:     user42
+2020-09-07T11:14:50.258133+00:00 app[web.1]: user42 join room26
+2020-09-07T11:14:52.761742+00:00 app[web.1]: (3)user disconnected:  user42
+2020-09-07T11:14:55.405040+00:00 app[web.1]: (2)user disconnected:  user41
+2020-09-07T11:14:59.089143+00:00 app[web.1]: (3)user connected:     user43
+2020-09-07T11:15:13.723694+00:00 app[web.1]: (2)user disconnected:  user43
+2020-09-07T11:15:14.027424+00:00 app[web.1]: (3)user connected:     user44
+2020-09-07T11:15:27.545032+00:00 app[web.1]: user44 join room1
+2020-09-07T11:15:33.086839+00:00 app[web.1]: (2)user disconnected:  user44
+2020-09-07T11:15:36.851905+00:00 app[web.1]: (3)user connected:     user45
+2020-09-07T11:16:02.602401+00:00 app[web.1]: user45 join room101
+2020-09-07T11:16:24.886453+00:00 app[web.1]: (2)user disconnected:  user45
+2020-09-07T11:16:27.083072+00:00 app[web.1]: (3)user connected:     user46
+2020-09-07T11:16:45.119837+00:00 app[web.1]: user46 :
+2020-09-07T11:18:05.383428+00:00 app[web.1]: (2)user disconnected:  user46
+2020-09-07T11:18:05.666232+00:00 app[web.1]: (3)user connected:     user47
+2020-09-07T11:19:52.452372+00:00 app[web.1]: [room 50] user38's Total score : 140
+2020-09-07T11:19:52.453283+00:00 app[web.1]: [room 50] user39's Total score : 166
+2020-09-07T11:20:01.679029+00:00 app[web.1]: (2)user disconnected:  user38
+2020-09-07T11:20:01.980253+00:00 app[web.1]: (3)user connected:     user48
+2020-09-07T11:20:03.483883+00:00 app[web.1]: (2)user disconnected:  user39
+2020-09-07T11:20:03.744108+00:00 app[web.1]: (3)user connected:     user49
+2020-09-07T11:20:09.176410+00:00 app[web.1]: user49 join room25
+2020-09-07T11:20:12.039263+00:00 app[web.1]: user48 join room26
+2020-09-07T11:20:13.759467+00:00 app[web.1]: (2)user disconnected:  user48
+2020-09-07T11:20:14.057024+00:00 app[web.1]: (3)user connected:     user50
+2020-09-07T11:20:15.158710+00:00 app[web.1]: (2)user disconnected:  user49
+2020-09-07T11:20:15.388828+00:00 app[web.1]: (3)user connected:     user51
+2020-09-07T11:20:18.143118+00:00 app[web.1]: user51 join room25
+2020-09-07T11:20:18.962937+00:00 app[web.1]: user50 join room25
+2020-09-07T11:25:17.975164+00:00 app[web.1]: user47 join room75
+2020-09-07T11:25:19.339516+00:00 app[web.1]: (2)user disconnected:  user47
+2020-09-07T11:25:23.617418+00:00 app[web.1]: (3)user connected:     user52
+2020-09-07T11:26:01.590870+00:00 app[web.1]: user52 :
+2020-09-07T11:26:04.490458+00:00 app[web.1]: user52 :
+2020-09-07T11:26:30.622261+00:00 app[web.1]: (2)user disconnected:  user52
+2020-09-07T11:26:30.864420+00:00 app[web.1]: (3)user connected:     user53
+2020-09-07T11:26:45.324399+00:00 app[web.1]: [room 25] user51's Total score : 240
+2020-09-07T11:26:45.325402+00:00 app[web.1]: [room 25] user50's Total score : 164
+2020-09-07T11:27:01.100323+00:00 app[web.1]: (2)user disconnected:  user50
+2020-09-07T11:27:01.412851+00:00 app[web.1]: (3)user connected:     user54
+2020-09-07T11:27:03.046069+00:00 app[web.1]: (2)user disconnected:  user51
+2020-09-07T11:27:03.321845+00:00 app[web.1]: (3)user connected:     user55
+2020-09-07T11:27:05.105490+00:00 app[web.1]: user54 join room12
+2020-09-07T11:27:06.482022+00:00 app[web.1]: user55 join room12
+2020-09-07T11:30:27.595788+00:00 app[web.1]: user54 : 들어오면 소리지르셈
+2020-09-07T11:38:48.676685+00:00 app[web.1]: [room 12] user54's Total score : 207
+2020-09-07T11:38:48.715686+00:00 app[web.1]: [room 12] user55's Total score : 188
+2020-09-07T11:38:58.989777+00:00 app[web.1]: (2)user disconnected:  user55
+2020-09-07T11:38:59.237855+00:00 app[web.1]: (3)user connected:     user56
+2020-09-07T11:39:05.903935+00:00 app[web.1]: (2)user disconnected:  user54
+2020-09-07T11:39:06.196411+00:00 app[web.1]: (3)user connected:     user57
+2020-09-07T11:39:07.532340+00:00 app[web.1]: (2)user disconnected:  user56
+2020-09-07T11:39:11.385975+00:00 app[web.1]: (1)user disconnected:  user57
+2020-09-07T11:39:25.649825+00:00 app[web.1]: (0)user disconnected:  user53
+2020-09-07T11:39:25.901547+00:00 app[web.1]: (1)user connected:     user58
+2020-09-07T11:41:24.475963+00:00 app[web.1]: (0)user disconnected:  user58
+2020-09-07T11:42:13.793008+00:00 app[web.1]: (1)user connected:     user59
+2020-09-07T11:43:15.930453+00:00 app[web.1]: user59 join room1
+2020-09-07T11:43:18.282468+00:00 app[web.1]: (2)user connected:     user60
+2020-09-07T11:43:19.215640+00:00 app[web.1]: (1)user disconnected:  user59
+2020-09-07T11:45:02.858040+00:00 app[web.1]: (2)user connected:     user61
+2020-09-07T11:45:15.969807+00:00 app[web.1]: (1)user disconnected:  user61
+2020-09-07T11:45:16.234260+00:00 app[web.1]: (2)user connected:     user62
+2020-09-07T11:45:46.247721+00:00 app[web.1]: (1)user disconnected:  user62
+2020-09-07T11:51:47.397043+00:00 app[web.1]: (2)user connected:     user63
+2020-09-07T11:52:17.411904+00:00 app[web.1]: (1)user disconnected:  user63
+2020-09-07T11:53:15.784497+00:00 app[web.1]: (2)user connected:     user64
+2020-09-07T11:53:46.760977+00:00 app[web.1]: (1)user disconnected:  user64
+2020-09-07T12:02:10.630048+00:00 app[web.1]: (0)user disconnected:  user60
+2020-09-07T12:03:17.884223+00:00 app[web.1]: (1)user connected:     user65
+2020-09-07T12:03:31.118866+00:00 app[web.1]: (2)user connected:     user66
+2020-09-07T12:03:44.203326+00:00 app[web.1]: (3)user connected:     user67
+2020-09-07T12:03:46.129887+00:00 app[web.1]: (4)user connected:     user68
+2020-09-07T12:03:53.187663+00:00 app[web.1]: (3)user disconnected:  user66
+2020-09-07T12:04:15.131740+00:00 app[web.1]: (4)user connected:     user69
+2020-09-07T12:04:38.549176+00:00 app[web.1]: (5)user connected:     user70
+2020-09-07T12:04:45.132460+00:00 app[web.1]: (4)user disconnected:  user69
+2020-09-07T12:07:50.116195+00:00 app[web.1]: user65 join room1
+2020-09-07T12:08:04.693723+00:00 app[web.1]: (3)user disconnected:  user65
+2020-09-07T12:08:04.961848+00:00 app[web.1]: (4)user connected:     user71
+2020-09-07T12:08:11.733374+00:00 app[web.1]: user70 join room40
+2020-09-07T12:08:12.445475+00:00 app[web.1]: user71 join room40
+2020-09-07T12:09:00.118193+00:00 app[web.1]: (3)user disconnected:  user67
+2020-09-07T12:10:39.091286+00:00 app[web.1]: (4)user connected:     user72
+2020-09-07T12:10:52.124939+00:00 app[web.1]: (5)user connected:     user73
+2020-09-07T12:10:54.063322+00:00 app[web.1]: user73 join room1
+2020-09-07T12:11:08.028067+00:00 app[web.1]: user72 join room1
+2020-09-07T12:15:17.656350+00:00 app[web.1]: (6)user connected:     user74
+2020-09-07T12:15:23.523502+00:00 app[web.1]: user74 join room2
+2020-09-07T12:15:39.886516+00:00 app[web.1]: (5)user disconnected:  user74
+2020-09-07T12:15:40.246019+00:00 app[web.1]: (6)user connected:     user75
+2020-09-07T12:15:42.479292+00:00 app[web.1]: user75 join room2
+2020-09-07T12:16:11.813526+00:00 app[web.1]: (5)user disconnected:  user75
+2020-09-07T12:16:12.106016+00:00 app[web.1]: (6)user connected:     user76
+2020-09-07T12:16:17.272779+00:00 app[web.1]: user76 join room2
+2020-09-07T12:16:19.453988+00:00 app[web.1]: (5)user disconnected:  user76
+2020-09-07T12:16:19.691869+00:00 app[web.1]: (6)user connected:     user77
+2020-09-07T12:16:21.112339+00:00 app[web.1]: user77 join room2
+2020-09-07T12:17:29.248899+00:00 app[web.1]: (5)user disconnected:  user68
+2020-09-07T12:18:03.567421+00:00 app[web.1]: (6)user connected:     user78
+2020-09-07T12:18:15.526813+00:00 app[web.1]: (5)user disconnected:  user77
+2020-09-07T12:18:15.846434+00:00 app[web.1]: (6)user connected:     user79
+2020-09-07T12:18:24.060126+00:00 app[web.1]: [room 40] user71's Total score : 134
+2020-09-07T12:18:24.346721+00:00 app[web.1]: [room 40] user70's Total score : 195
+2020-09-07T12:18:38.266163+00:00 app[web.1]: (5)user disconnected:  user70
+2020-09-07T12:18:38.368390+00:00 app[web.1]: (4)user disconnected:  user71
+2020-09-07T12:18:38.658375+00:00 app[web.1]: (5)user connected:     user80
+2020-09-07T12:18:40.757205+00:00 app[web.1]: user80 join room40
+2020-09-07T12:18:51.810943+00:00 app[web.1]: (6)user connected:     user81
+2020-09-07T12:18:53.471472+00:00 app[web.1]: [room 1] user73's Total score : 170
+2020-09-07T12:18:53.532007+00:00 app[web.1]: [room 1] user72's Total score : 175
+2020-09-07T12:18:53.738846+00:00 app[web.1]: user79 join room2
+2020-09-07T12:18:55.908866+00:00 app[web.1]: (5)user disconnected:  user73
+2020-09-07T12:18:56.330610+00:00 app[web.1]: user81 join room40
+2020-09-07T12:19:04.247871+00:00 app[web.1]: (4)user disconnected:  user79
+2020-09-07T12:19:04.518109+00:00 app[web.1]: (5)user connected:     user82
+2020-09-07T12:19:06.383010+00:00 app[web.1]: (4)user disconnected:  user72
+2020-09-07T12:19:06.771870+00:00 app[web.1]: (5)user connected:     user83
+2020-09-07T12:19:08.523388+00:00 app[web.1]: user82 join room2
+2020-09-07T12:19:21.004798+00:00 app[web.1]: (4)user disconnected:  user83
+2020-09-07T12:19:47.631828+00:00 app[web.1]: (5)user connected:     user84
+2020-09-07T12:19:49.218267+00:00 app[web.1]: user84 join room2
+2020-09-07T12:20:18.954967+00:00 app[web.1]: user82 : ㅎㅇ
+2020-09-07T12:20:21.607443+00:00 app[web.1]: user82 : 은제 왔데 ㅋ
+2020-09-07T12:21:20.568529+00:00 app[web.1]: user82 : 아싸 라스
+2020-09-07T12:21:31.040561+00:00 app[web.1]: (4)user disconnected:  user78
+2020-09-07T12:21:31.291651+00:00 app[web.1]: (5)user connected:     user85
+2020-09-07T12:21:33.850549+00:00 app[web.1]: user85 join room1
+2020-09-07T12:21:34.102831+00:00 app[web.1]: user82 : 아 에반데
+2020-09-07T12:21:50.922707+00:00 app[web.1]: (4)user disconnected:  user85
+2020-09-07T12:21:51.169558+00:00 app[web.1]: (5)user connected:     user86
+2020-09-07T12:21:57.481625+00:00 app[web.1]: user86 join room1
+2020-09-07T12:22:07.048045+00:00 app[web.1]: (4)user disconnected:  user86
+2020-09-07T12:22:20.267894+00:00 app[web.1]: user82 : 아니 라스 있는데 ㅋㅋㅋ
+2020-09-07T12:23:23.265720+00:00 app[web.1]: user82 : 야;;
+2020-09-07T12:23:28.140960+00:00 app[web.1]: user84 : ?
+2020-09-07T12:23:44.826684+00:00 app[web.1]: user82 : 야추는 에바자너
+2020-09-07T12:23:57.409840+00:00 app[web.1]: user82 : 상하체 무슨 보디빌더세여?
+2020-09-07T12:24:03.713658+00:00 app[web.1]: user84 : ㅎㅎ
+2020-09-07T12:24:04.074518+00:00 app[web.1]: user82 : ㅈㄴ 튼실하네
+2020-09-07T12:24:54.407672+00:00 app[web.1]: user82 : 아 장난하지마;;
+2020-09-07T12:25:07.295158+00:00 app[web.1]: user84 : 오
+2020-09-07T12:25:52.487541+00:00 app[web.1]: user82 : 졋네 ㅋ
+2020-09-07T12:26:13.726788+00:00 app[web.1]: user82 : 미친 쌩 풀하 ㅋㅋㅋ
+2020-09-07T12:26:32.854776+00:00 app[web.1]: user84 : 개잘붙네 ㅋㅋ
+2020-09-07T12:27:19.462208+00:00 app[web.1]: user82 : 아쒸 3 가져갈걸
+2020-09-07T12:28:02.459398+00:00 app[web.1]: user84 : ㄲ
+2020-09-07T12:28:03.764203+00:00 app[web.1]: user82 : 펑
+2020-09-07T12:28:08.451350+00:00 app[web.1]: user82 : 한판 더?
+2020-09-07T12:28:17.092504+00:00 app[web.1]: [room 2] user82's Total score : 133
+2020-09-07T12:28:17.094358+00:00 app[web.1]: [room 2] user84's Total score : 207
+2020-09-07T12:28:18.900312+00:00 app[web.1]: user84 : ㄱ
+2020-09-07T12:28:26.058615+00:00 app[web.1]: user82 : ㅇ?
+2020-09-07T12:28:27.121130+00:00 app[web.1]: user84 : ?
+2020-09-07T12:28:27.995935+00:00 app[web.1]: user82 : 리겜 어찌함
+2020-09-07T12:28:31.058738+00:00 app[web.1]: (3)user disconnected:  user84
+2020-09-07T12:28:31.515690+00:00 app[web.1]: (4)user connected:     user87
+2020-09-07T12:28:33.534252+00:00 app[web.1]: user87 join room2
+2020-09-07T12:29:20.974874+00:00 app[web.1]: user87 : 이걸 풀하를 안가네
+2020-09-07T12:29:25.802803+00:00 app[web.1]: user82 : 낮아서 안가
+2020-09-07T12:29:29.324142+00:00 app[web.1]: user82 : 애매혀
+2020-09-07T12:29:32.365632+00:00 app[web.1]: [room 40] user81's Total score : 213
+2020-09-07T12:29:32.412523+00:00 app[web.1]: [room 40] user80's Total score : 138
+2020-09-07T12:29:37.862135+00:00 app[web.1]: (3)user disconnected:  user80
+2020-09-07T12:29:38.087088+00:00 app[web.1]: (4)user connected:     user88
+2020-09-07T12:29:40.466436+00:00 app[web.1]: (3)user disconnected:  user81
+2020-09-07T12:29:40.794874+00:00 app[web.1]: (4)user connected:     user89
+2020-09-07T12:29:41.430446+00:00 app[web.1]: user88 join room40
+2020-09-07T12:29:46.412464+00:00 app[web.1]: user89 join room40
+2020-09-07T12:29:48.107659+00:00 app[web.1]: (5)user connected:     user90
+2020-09-07T12:29:57.985533+00:00 app[web.1]: user90 join room3
+2020-09-07T12:30:01.257044+00:00 app[web.1]: (4)user disconnected:  user90
+2020-09-07T12:30:06.521808+00:00 app[web.1]: user82 : 상체부터 조진다
+2020-09-07T12:30:21.169753+00:00 app[web.1]: user82 : 너 조작하냐?
+2020-09-07T12:30:26.209974+00:00 app[web.1]: user87 : 에 ㅋ?
+2020-09-07T12:30:35.527232+00:00 app[web.1]: user87 : 머야
+2020-09-07T12:30:37.811452+00:00 app[web.1]: user87 : 너도개잘나오네
+2020-09-07T12:30:45.676709+00:00 app[web.1]: user87 : 6조져야지
+2020-09-07T12:30:49.633728+00:00 app[web.1]: user82 : ㅇ 포카야
+2020-09-07T12:30:51.803513+00:00 app[web.1]: user87 : 이걸 포카를한다고?
+2020-09-07T12:31:01.584101+00:00 app[web.1]: user82 : 어차피 초이스 남아서
+2020-09-07T12:31:02.943794+00:00 app[web.1]: user82 : 쌉가능
+2020-09-07T12:31:48.394783+00:00 app[web.1]: user82 : 휴
+2020-09-07T12:31:49.775110+00:00 app[web.1]: user82 : 쫄렷네
+2020-09-07T12:32:19.235949+00:00 app[web.1]: user87 : 얼;;
+2020-09-07T12:32:19.998183+00:00 app[web.1]: user82 : 앙 개꿀띠
+2020-09-07T12:32:25.246725+00:00 app[web.1]: user82 : 이거 머
+2020-09-07T12:32:29.055033+00:00 app[web.1]: user82 : 공정하게 1승1패하게
+2020-09-07T12:32:31.717706+00:00 app[web.1]: user82 : 만들어놨네 ㅋㅋ
+2020-09-07T12:32:34.634137+00:00 app[web.1]: user87 : 아조졌네
+2020-09-07T12:33:00.629700+00:00 app[web.1]: user82 : 아 에바
+2020-09-07T12:33:02.628922+00:00 app[web.1]: user87 : 아깝네 ㅋㅋ
+2020-09-07T12:33:04.366009+00:00 app[web.1]: user82 : 이게 포카만 뜨네
+2020-09-07T12:33:11.877063+00:00 app[web.1]: user82 : 2기방패 온
+2020-09-07T12:33:23.502413+00:00 app[web.1]: user82 : 오우
+2020-09-07T12:33:26.235253+00:00 app[web.1]: user82 : 위험했다
+2020-09-07T12:33:43.259168+00:00 app[web.1]: user87 : 아니 4랑 3에서 몇개를 뽑아야되는거야;;
+2020-09-07T12:34:01.696296+00:00 app[web.1]: user82 : 야 난
+2020-09-07T12:34:07.939318+00:00 app[web.1]: user82 : 최소 7개 뽑아야해 ㅋㅋㅋ
+2020-09-07T12:34:08.184247+00:00 app[web.1]: user87 : 조졌는데
+2020-09-07T12:34:10.603550+00:00 app[web.1]: user82 : 36을
+2020-09-07T12:34:21.957245+00:00 app[web.1]: user87 : 야추버려
+2020-09-07T12:34:31.531350+00:00 app[web.1]: user82 : 한다
+2020-09-07T12:34:32.397659+00:00 app[web.1]: user82 : 한다
+2020-09-07T12:34:33.182488+00:00 app[web.1]: user82 : 한다
+2020-09-07T12:34:35.197495+00:00 app[web.1]: user87 : 이게뜨겠어?
+2020-09-07T12:34:36.137724+00:00 app[web.1]: user87 : 아 ㅋ
+2020-09-07T12:34:44.459748+00:00 app[web.1]: user82 : 시불
+2020-09-07T12:34:45.906811+00:00 app[web.1]: user87 : 너도 야추버려
+2020-09-07T12:34:49.042633+00:00 app[web.1]: user82 : 초이스 떼
+2020-09-07T12:35:05.679521+00:00 app[web.1]: user87 : 아 에반데
+2020-09-07T12:35:09.242540+00:00 app[web.1]: user82 : 상체 ㄱ
+2020-09-07T12:35:23.337565+00:00 app[web.1]: user87 : 상체못버리지
+2020-09-07T12:35:25.961964+00:00 app[web.1]: user82 : ㅋㅋㅋ

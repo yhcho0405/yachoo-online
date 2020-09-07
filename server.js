@@ -74,7 +74,7 @@ io.on('connection', function(socket) {
 				console.log(name + " use cheat " + text);
 				isCheat = 1;
 				for(var i = 0; i < 5; i++) {
-					dices[i] = parseInt(text[i + 7]);
+					dices[i] = parseInt(text[i + 8]);
 				}
 			}
 		} else if (text == "!show connect users") {

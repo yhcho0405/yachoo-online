@@ -33,14 +33,14 @@ io.on('connection', function(socket) {
 	socket.join(isJoin);
 	var name = "user" + count++;
 	djj++;
-	util.log(`(${djj})` + 'user connected:    ', name);
+	console.log(`(${djj})` + 'user connected:    ', name);
 	io.to(socket.id).emit('change name',name);
 	io.to(socket.id).emit('room list', rooms, visitors);
 	io.to(isJoin).emit('receive message', `[server] join ${name}`);
 
 	socket.on('disconnect', function(){
 		djj--;
-		util.log(`(${djj})` + 'user disconnected: ', name);
+		console.log(`(${djj})` + 'user disconnected: ', name);
 		if (isJoin) {
 			visitors[isJoin - 1]--;
 			io.emit('room list', rooms, visitors);
@@ -71,7 +71,7 @@ io.on('connection', function(socket) {
 	socket.on('send message', function(name,text){
 		if (text.substring(0, 7) == "diceset"){
 			if (text.length == 13 && text.substring(0, 7) == "diceset" && chkVaildNum(text.substring(7, 12)) && text[12] == "!") {
-				util.log(name + " use cheat " + text);
+				console.log(name + " use cheat " + text);
 				isCheat = 1;
 				for(var i = 0; i < 5; i++) {
 					dices[i] = parseInt(text[i + 7]);
@@ -79,7 +79,7 @@ io.on('connection', function(socket) {
 			}
 		} else {
 			var msg = name + ' : ' + text;
-			util.log(msg);
+			console.log(msg);
 			io.to(isJoin).emit('receive message', msg);
 		}
 	});
@@ -97,7 +97,7 @@ io.on('connection', function(socket) {
 		else if (visitors[roomNumber - 1] < 2) {
 			visitors[roomNumber - 1]++;
 			isJoin = roomNumber;
-			util.log(name + " join room" + roomNumber);
+			console.log(name + " join room" + roomNumber);
 			socket.leave(0);
 			socket.join(isJoin);
 			socket.emit('receive message', `[system] You joined room ${isJoin}`);

@@ -228,7 +228,6 @@
             keepDice[parseInt(this.id.replace("dice", "")) - 1] = 0;
           }
         }
-        console.log(keepDice);
       });
       var socket = io();
 
@@ -374,7 +373,6 @@
         for(var i = 1; i <= 5; i++) {
           appendMe(`#dice${i}`, dice_text[dices[i - 1] - 1]);
         }
-        console.log(dices);
       }
       socket.on('dice update', function(dices) {
         rollingRandom(dices);

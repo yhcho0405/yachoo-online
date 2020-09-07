@@ -11,6 +11,8 @@ app.get('/',function(req, res){
 var count = 1;
 var rooms = 100;
 
+var djj = 0;
+
 // [Ctrl + f] delete cheat
 var isCheat = 0;
 
@@ -30,13 +32,15 @@ io.on('connection', function(socket) {
 	
 	socket.join(isJoin);
 	var name = "user" + count++;
-	util.log('user connected:    ', name);
+	djj++;
+	util.log(`(${djj})` + 'user connected:    ', name);
 	io.to(socket.id).emit('change name',name);
 	io.to(socket.id).emit('room list', rooms, visitors);
 	io.to(isJoin).emit('receive message', `[server] join ${name}`);
 
 	socket.on('disconnect', function(){
-		util.log('user disconnected: ', name);
+		djj--;
+		util.log(`(${djj})` + 'user disconnected: ', name);
 		if (isJoin) {
 			visitors[isJoin - 1]--;
 			io.emit('room list', rooms, visitors);

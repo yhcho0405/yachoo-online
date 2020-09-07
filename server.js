@@ -9,7 +9,7 @@ const sleep = require("http");
 /* Prevent Sleep in Heroku Server */
 setInterval(function () {
 	sleep.get("http://yachoo.herokuapp.com");
-  }, 10000); // every 20 minutes
+  }, 600000); // every 10 minutes
 
 app.get('/',function(req, res){
  	res.sendFile(__dirname + '/client.html');

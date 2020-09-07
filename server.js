@@ -140,6 +140,7 @@ io.on('connection', function(socket) {
 
 	socket.on('check score', function() {
 		io.to(isJoin).emit('receive message', `[room ${isJoin}] ${name}'s Total score : ${score[13]}`);
+		console.log(`[room ${isJoin}] ${name}'s Total score : ${score[13]}`);
 	});
 
 	socket.on('append in room', function(target, content, option, target2, content2) {

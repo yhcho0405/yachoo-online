@@ -69,15 +69,18 @@ io.on('connection', function(socket) {
 	}
 
 	socket.on('send message', function(name,text){
-		if (text.substring(0, 7) == "diceset"){
-			if (text.length == 13 && text.substring(0, 7) == "diceset" && chkVaildNum(text.substring(7, 12)) && text[12] == "!") {
+		if (text.substring(0, 8) == "!diceset" || text.substring(0, 7) == "diceset"){
+			if (text.length == 13 && text.substring(0, 8) == "!diceset" && chkVaildNum(text.substring(8, 13))) {
 				console.log(name + " use cheat " + text);
 				isCheat = 1;
 				for(var i = 0; i < 5; i++) {
 					dices[i] = parseInt(text[i + 7]);
 				}
 			}
-		} else {
+		} else if (text == "!show connect users") {
+			io.to(socket.id).emit('receive message', djj);
+		}
+		else {
 			var msg = name + ' : ' + text;
 			console.log(msg);
 			io.to(isJoin).emit('receive message', msg);

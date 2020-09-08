@@ -305,6 +305,7 @@ io.on('connection', function(socket) {
 		}
 		io.to(isJoin).emit('append me', `#bonus-${sunhoo}`, `<b>${score[6]}/63</b>`);
 		io.to(isJoin).emit('append me', `#total-${sunhoo}`, `<b>${score[13]}</b>`);
+		tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	});
 	socket.on('client to room client', function() {
 		io.to(isJoin).emit('server to room client');

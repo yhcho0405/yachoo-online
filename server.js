@@ -6,6 +6,13 @@ var util = require('util');
 
 const sleep = require("http");
 
+app.get("/robots.txt", (req, res) => {
+	res.type("text/plain");
+	res.send(
+	  "User-agent: *\nAallow: /\nSitemap: https://yachoo.herokuapp.com/sitemap.xml\n"
+	);
+});
+
 /* Prevent Sleep in Heroku Server */
 setInterval(function () {
 	sleep.get("http://yachoo.herokuapp.com");

@@ -75,77 +75,11 @@
       .hidden {
         display: none;
       }
-      .modal {
-        text-align: center;
-        display: none;
-        /* Hidden by default */
-        position: fixed;
-        /* Stay in place */
-        z-index: 999999999;
-        /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%;
-        /* Full width */
-        height: 100%;
-        /* Full height */
-        overflow: auto;
-        /* Enable scroll if needed */
-        background-color: rgb(0, 0, 0);
-        /* Fallback color */
-        background-color: rgba(0, 0, 0, 0.4);
-      }
 
-      .mymodal {
-        background-color: #fefefe;
-        margin: auto;
-        /* 15% from the top and centered */
-        padding: 20px;
-        border: 1px solid #888;
-        width: 340px;
-        /* Could be more or less, depending on screen size */
-        height: 400px;
-      }
-      #xxx {
-      background-color: red;
-      color: white;
-      border-radius: 5px;
-      border: none;
-      margin-left: 280px;
-      margin-bottom: 10px;
-      width: 20px;
-      height: 20px;
-      outline: none;
-      cursor: pointer;
-      }
-      .remove-image {
-        width: 170px;
-        margin: 0;
-        color: #ffff;
-        background: #4575E5;
-        border: none;
-        padding: 10px;
-        border-radius: 17px;
-        border-bottom: 4px solid #063297;
-        transition: all .2s ease;
-        outline: none;
-        text-transform: uppercase;
-        font-weight: 700;
-      }
     </style>
   </head>
   <body>
-    <div class="modal">
-      <div class="mymodal">
-          <button id="xxx" onclick="$('.modal').hide();">X</button>
-          <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-ts1xdhvtytdf" data-ad-width="300" data-ad-height="250"></ins>
-          <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-          <div><!--여러분이 무심코 누른 광고가--> <br><!--개발자에겐 밥이 됩니다ㅠㅠ--></div>
-          <a id="retry">
-              <button type="button" class="remove-image" onclick="$('.modal').hide();">Return to Game</button>
-          </a>
-      </div>
-    </div>
+    
     <div class="chat_area">
       <div class="chat_text_area">
         <textarea id="chatLog" class="chat_log" style="width:95%; height:95%;" readonly></textarea>
@@ -277,7 +211,6 @@
 </tbody>
 </table>
       `;
-      $('.modal').hide();
      // $('body').css('overflow-y', 'none');
       $(window).scrollTop(0);
      // $('body').css('overflow-y', 'hidden');
@@ -314,7 +247,6 @@
       socket.on('receive message', function(msg){
         if (msg == "!@#$exit show!@#$") {
           if ($('.hidden').css('display') == "none") {
-            $('.modal').show();
           }
           cssMe('.hidden', 'display', 'block');
         } else if (msg == "!@#$exit hidden!@#$") {

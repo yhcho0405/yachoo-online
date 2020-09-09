@@ -22,7 +22,7 @@ app.get('/',function(req, res){
  	res.sendFile(__dirname + '/client.html');
 });
 
-var count = 1;
+var count = 100;
 var rooms = 30;
 
 var djj = 0;

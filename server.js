@@ -23,7 +23,7 @@ app.get('/',function(req, res){
 });
 
 var count = 1;
-var rooms = 100;
+var rooms = 20;
 
 var djj = 0;
 

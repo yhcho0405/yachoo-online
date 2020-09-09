@@ -16,7 +16,7 @@ app.get("/robots.txt", (req, res) => {
 /* Prevent Sleep in Heroku Server */
 setInterval(function () {
 	sleep.get("http://yachoo.herokuapp.com");
-  }, 600000); // every 10 minutes
+}, 600000); // every 10 minutes
 
 app.get('/',function(req, res){
  	res.sendFile(__dirname + '/client.html');
@@ -34,6 +34,43 @@ var visitors = new Array(rooms);
 for (var i = 0; i <= rooms; i++) {
 	visitors[i] = 0;
 }
+
+var fakechk = new Array(rooms);
+for (var i = 0; i < rooms; i++) {
+	fakechk[i] = 0;
+}
+var fakecount = 0;
+var fakenum = 0;
+var fakeusers = 4;
+setInterval(function () {
+	if ((rooms * 2) - 20 > djj) {
+		if (fakeusers <= 2) {
+			fakeusers = 3;
+		} else if (fakeusers >= 7) {
+			fakeusers = 6;
+		} else {
+			fakeusers += Math.floor(Math.random() * 3) - 1;
+		}
+		while (fakecount > fakeusers) {
+			for (var i = 0; i < rooms; i++) {
+				if (fakechk[i] && Math.floor(Math.random() * fakecount) == 0) {
+					fakechk[i] = 0;
+					fakecount--;
+					visitors[i] = 0;
+				}
+			}
+		}
+		while (fakecount < fakeusers) {
+			fakenum = Math.floor(Math.random() * rooms);
+			if (fakechk[fakenum] == 0 && visitors[fakenum] == 0) {
+				fakechk[fakenum] = 1;
+				fakecount++;
+				visitors[fakenum] = 2;
+			}
+		}
+		io.emit('room list', rooms, visitors);
+	}
+}, 180000); // every 3 minutes
 
 io.on('connection', function(socket) {
 	var isJoin = 0;

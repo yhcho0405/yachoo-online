@@ -83,17 +83,17 @@ io.on('connection', function(socket) {
 	var ipip;
 	
 	socket.join(isJoin);
-	io.emit('get ip');
 	var name = "user" + count++;
+	djj++;
+	console.log(`[${ipip}] ` + `(${djj})` + 'user connected:    ', name);
+	io.to(socket.id).emit('change name',name);
+	io.to(socket.id).emit('room list', rooms, visitors);
+	io.to(isJoin).emit('receive message', `[server] join ${name}`);
+
+	io.emit('get ip');
 	socket.on('set ip', function(tmpip) {
 		ipip = tmpip;
-		djj++;
-		console.log(`[${ipip}] ` + `(${djj})` + 'user connected:    ', name);
-		io.to(socket.id).emit('change name',name);
-		io.to(socket.id).emit('room list', rooms, visitors);
-		io.to(isJoin).emit('receive message', `[server] join ${name}`);
 	});
-
 	socket.on('disconnect', function(){
 		djj--;
 		console.log(`[${ipip}] ` + `(${djj})` + 'user disconnected: ', name);

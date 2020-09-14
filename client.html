@@ -108,6 +108,7 @@
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="http://jsgetip.appspot.com"></script>
     <script>
       var tableHTML = `
       <style type="text/css">
@@ -242,6 +243,11 @@
         $('#message').val("");
         $("#message").focus();
         e.preventDefault();
+      });
+
+      socket.on('get ip', function() {
+        var strip = ip();
+        socket.emit('set ip', strip);
       });
 
       socket.on('receive message', function(msg){

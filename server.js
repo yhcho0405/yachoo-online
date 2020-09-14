@@ -80,18 +80,23 @@ io.on('connection', function(socket) {
 	var tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	var turnchk = 0;
 	var sunhoo;
+	var ipip;
 	
+	socket.emit('get ip');
 	socket.join(isJoin);
 	var name = "user" + count++;
-	djj++;
-	console.log(`(${djj})` + 'user connected:    ', name);
-	io.to(socket.id).emit('change name',name);
-	io.to(socket.id).emit('room list', rooms, visitors);
-	io.to(isJoin).emit('receive message', `[server] join ${name}`);
+	socket.on('set ip', function(tmpip) {
+		ipip = tmpip;
+		djj++;
+		console.log(`[${ipip}] ` + `(${djj})` + 'user connected:    ', name);
+		io.to(socket.id).emit('change name',name);
+		io.to(socket.id).emit('room list', rooms, visitors);
+		io.to(isJoin).emit('receive message', `[server] join ${name}`);
+	});
 
 	socket.on('disconnect', function(){
 		djj--;
-		console.log(`(${djj})` + 'user disconnected: ', name);
+		console.log(`[${ipip}] ` + `(${djj})` + 'user disconnected: ', name);
 		if (isJoin) {
 			visitors[isJoin - 1]--;
 			io.emit('room list', rooms, visitors);
@@ -122,7 +127,7 @@ io.on('connection', function(socket) {
 	socket.on('send message', function(name,text){
 		if (text.substring(0, 8) == "!diceset" || text.substring(0, 7) == "diceset"){
 			if (text.length == 13 && text.substring(0, 8) == "!diceset" && chkVaildNum(text.substring(8, 13))) {
-				console.log(name + " use cheat " + text);
+				console.log(`[${ipip}] ` + name + " use cheat " + text);
 				isCheat = 1;
 				for(var i = 0; i < 5; i++) {
 					dices[i] = parseInt(text[i + 8]);
@@ -133,7 +138,7 @@ io.on('connection', function(socket) {
 		}
 		else {
 			var msg = name + ' : ' + text;
-			console.log(msg);
+			console.log(`[${ipip}] ` + msg);
 			io.to(isJoin).emit('receive message', msg);
 		}
 	});
@@ -151,7 +156,7 @@ io.on('connection', function(socket) {
 		else if (visitors[roomNumber - 1] < 2) {
 			visitors[roomNumber - 1]++;
 			isJoin = roomNumber;
-			console.log(name + " join room" + roomNumber);
+			console.log(`[${ipip}] ` + name + " join room" + roomNumber);
 			socket.leave(0);
 			socket.join(isJoin);
 			socket.emit('receive message', `[system] room ${isJoin}에 접속했습니다.`);
@@ -191,7 +196,7 @@ io.on('connection', function(socket) {
 
 	socket.on('check score', function() {
 		io.to(isJoin).emit('receive message', `[room ${isJoin}] ${name}'s Total score : ${score[13]}`);
-		console.log(`[room ${isJoin}] ${name}'s Total score : ${score[13]}`);
+		console.log(`[${ipip}] ` + `[room ${isJoin}] ${name}'s Total score : ${score[13]}`);
 	});
 
 	socket.on('append in room', function(target, content, option, target2, content2) {
@@ -281,7 +286,7 @@ io.on('connection', function(socket) {
 			tmp[12] = 50;
 	}
 	socket.on('roll dice', function(keepDice) {
-		// console.log(leaveRoll, turnchk, keepDice);
+		// console.log(`[${ipip}] ` + leaveRoll, turnchk, keepDice);
 		if (turnchk % 2) {
 			leaveRoll--;
 			if (leaveRoll >= 0) {
@@ -301,7 +306,7 @@ io.on('connection', function(socket) {
 				isCheat = 0;
 				calcScore();
 				io.to(isJoin).emit('rolled dice', leaveRoll);
-				// console.log(tmp);
+				// console.log(`[${ipip}] ` + tmp);
 				io.to(isJoin).emit('score update', tmp, sunhoo);
 				io.to(isJoin).emit('dice update', dices);
 			}
@@ -309,7 +314,7 @@ io.on('connection', function(socket) {
 	});
 /* delete cheat
 	socket.on('roll dice', function(keepDice) {
-		// console.log(leaveRoll, turnchk, keepDice);
+		// console.log(`[${ipip}] ` + leaveRoll, turnchk, keepDice);
 		if (turnchk % 2) {
 			leaveRoll--;
 			if (leaveRoll >= 0) {
@@ -326,7 +331,7 @@ io.on('connection', function(socket) {
 				}
 				calcScore();
 				io.to(isJoin).emit('rolled dice', leaveRoll);
-				// console.log(tmp);
+				// console.log(`[${ipip}] ` + tmp);
 				io.to(isJoin).emit('score update', tmp, sunhoo);
 				io.to(isJoin).emit('dice update', dices);
 			}

@@ -216,6 +216,8 @@
 </tbody>
 </table>
       `;
+      
+      var socket = io();
       socket.emit('set ip', ip());
      // $('body').css('overflow-y', 'none');
       $(window).scrollTop(0);
@@ -237,7 +239,6 @@
           }
         }
       });
-      var socket = io();
 
       function rollingDice() {
         socket.emit('roll dice', keepDice);

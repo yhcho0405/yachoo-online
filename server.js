@@ -74,10 +74,10 @@ io.on('connection', function(socket) {
 	var turnchk = 0;
 	var sunhoo;
 	var ipip = "YET";
+	djj++;
 
 	socket.on('set ip', function(tmpip){
 		ipip = tmpip;
-		djj++;
 		console.log(`[${ipip}] ` + `(${djj})` + 'user connected:    ', name);
 	});
 

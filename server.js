@@ -6,13 +6,6 @@ var util = require('util');
 
 const sleep = require("http");
 
-app.get("/robots.txt", (req, res) => {
-	res.type("text/plain");
-	res.send(
-	  "User-agent: *\nAallow: /\nSitemap: https://yachoo.herokuapp.com/sitemap.xml\n"
-	);
-});
-
 /* Prevent Sleep in Heroku Server */
 setInterval(function () {
 	sleep.get("http://yachoo.herokuapp.com");
@@ -84,12 +77,12 @@ io.on('connection', function(socket) {
 
 	socket.on('set ip', function(tmpip){
 		ipip = tmpip;
+		djj++;
+		console.log(`[${ipip}] ` + `(${djj})` + 'user connected:    ', name);
 	});
 
 	socket.join(isJoin);
 	var name = "user" + count++;
-	djj++;
-	console.log(`[${ipip}] ` + `(${djj})` + 'user connected:    ', name);
 	io.to(socket.id).emit('change name',name);
 	io.to(socket.id).emit('room list', rooms, visitors);
 	io.to(isJoin).emit('receive message', `[server] join ${name}`);

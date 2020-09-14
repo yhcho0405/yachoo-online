@@ -5,7 +5,6 @@ var io = require('socket.io')(http);
 var util = require('util');
 
 const sleep = require("http");
-const { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } = require('constants');
 
 app.get("/robots.txt", (req, res) => {
 	res.type("text/plain");

@@ -82,8 +82,8 @@ io.on('connection', function(socket) {
 	var sunhoo;
 	var ipip;
 	
-	socket.emit('get ip');
 	socket.join(isJoin);
+	io.emit('get ip');
 	var name = "user" + count++;
 	socket.on('set ip', function(tmpip) {
 		ipip = tmpip;

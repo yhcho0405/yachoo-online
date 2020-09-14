@@ -79,12 +79,12 @@ io.on('connection', function(socket) {
 
 	socket.on('set ip', function(tmpip) {
 		ip = tmpip;
-		console.log(`[${ip}] ` + `(${djj})` + 'user connected:    ', name);
 	});
 
 	socket.join(isJoin);
 	var name = "user" + count++;
 	djj++;
+	console.log(`[${ip}] ` + `(${djj})` + 'user connected:    ', name);
 	io.to(socket.id).emit('change name',name);
 	io.to(socket.id).emit('room list', rooms, visitors);
 	io.to(isJoin).emit('receive message', `[server] join ${name}`);

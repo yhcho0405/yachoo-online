@@ -6,6 +6,13 @@ var util = require('util');
 
 const sleep = require("http");
 
+app.get("/robots.txt", (req, res) => {
+	res.type("text/plain");
+	res.send(
+	  "User-agent: *\nAallow: /\nSitemap: https://yachoo.herokuapp.com/sitemap.xml\n"
+	);
+});
+
 /* Prevent Sleep in Heroku Server */
 setInterval(function () {
 	sleep.get("http://yachoo.herokuapp.com");
@@ -73,25 +80,18 @@ io.on('connection', function(socket) {
 	var tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	var turnchk = 0;
 	var sunhoo;
-	var ip;
-
-	io.to(socket.id).emit('get ip');
-
-	socket.on('set ip', function(tmpip) {
-		ip = tmpip;
-	});
-
+	
 	socket.join(isJoin);
 	var name = "user" + count++;
 	djj++;
-	console.log(`[${ip}] ` + `(${djj})` + 'user connected:    ', name);
+	console.log(`(${djj})` + 'user connected:    ', name);
 	io.to(socket.id).emit('change name',name);
 	io.to(socket.id).emit('room list', rooms, visitors);
 	io.to(isJoin).emit('receive message', `[server] join ${name}`);
 
 	socket.on('disconnect', function(){
 		djj--;
-		console.log(`[${ip}] ` + `(${djj})` + 'user disconnected: ', name);
+		console.log(`(${djj})` + 'user disconnected: ', name);
 		if (isJoin) {
 			visitors[isJoin - 1]--;
 			io.emit('room list', rooms, visitors);
@@ -119,10 +119,10 @@ io.on('connection', function(socket) {
 		return true;
 	}
 
-	socket.on('send message', function(name, text){
+	socket.on('send message', function(name,text){
 		if (text.substring(0, 8) == "!diceset" || text.substring(0, 7) == "diceset"){
 			if (text.length == 13 && text.substring(0, 8) == "!diceset" && chkVaildNum(text.substring(8, 13))) {
-				console.log(`[${ip}] ` + name + " use cheat " + text);
+				console.log(name + " use cheat " + text);
 				isCheat = 1;
 				for(var i = 0; i < 5; i++) {
 					dices[i] = parseInt(text[i + 8]);
@@ -133,7 +133,7 @@ io.on('connection', function(socket) {
 		}
 		else {
 			var msg = name + ' : ' + text;
-			console.log(`[${ip}] ` + msg);
+			console.log(msg);
 			io.to(isJoin).emit('receive message', msg);
 		}
 	});
@@ -151,7 +151,7 @@ io.on('connection', function(socket) {
 		else if (visitors[roomNumber - 1] < 2) {
 			visitors[roomNumber - 1]++;
 			isJoin = roomNumber;
-			console.log(`[${ip}] ` + name + " join room" + roomNumber);
+			console.log(name + " join room" + roomNumber);
 			socket.leave(0);
 			socket.join(isJoin);
 			socket.emit('receive message', `[system] room ${isJoin}에 접속했습니다.`);
@@ -191,7 +191,7 @@ io.on('connection', function(socket) {
 
 	socket.on('check score', function() {
 		io.to(isJoin).emit('receive message', `[room ${isJoin}] ${name}'s Total score : ${score[13]}`);
-		console.log(`[${ip}] ` + `[room ${isJoin}] ${name}'s Total score : ${score[13]}`);
+		console.log(`[room ${isJoin}] ${name}'s Total score : ${score[13]}`);
 	});
 
 	socket.on('append in room', function(target, content, option, target2, content2) {

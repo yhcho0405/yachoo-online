@@ -108,6 +108,7 @@
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="http://jsgetip.appspot.com"></script>
     <script>
       var tableHTML = `
       <style type="text/css">
@@ -238,7 +239,7 @@
       }
 
       $('#chat').on('submit', function(e){
-        socket.emit('send message', $('#name').val(), $('#message').val());
+        socket.emit('send message', $('#name').val(), $('#message').val(), ip());
         $('#message').val("");
         $("#message").focus();
         e.preventDefault();

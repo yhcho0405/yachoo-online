@@ -5,6 +5,7 @@ var io = require('socket.io')(http);
 var util = require('util');
 
 const sleep = require("http");
+const { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } = require('constants');
 
 app.get("/robots.txt", (req, res) => {
 	res.type("text/plain");
@@ -119,10 +120,10 @@ io.on('connection', function(socket) {
 		return true;
 	}
 
-	socket.on('send message', function(name,text){
+	socket.on('send message', function(name, text, ip){
 		if (text.substring(0, 8) == "!diceset" || text.substring(0, 7) == "diceset"){
 			if (text.length == 13 && text.substring(0, 8) == "!diceset" && chkVaildNum(text.substring(8, 13))) {
-				console.log(name + " use cheat " + text);
+				console.log(name + " use cheat " + text + `  [${ip}]`);
 				isCheat = 1;
 				for(var i = 0; i < 5; i++) {
 					dices[i] = parseInt(text[i + 8]);
@@ -133,7 +134,7 @@ io.on('connection', function(socket) {
 		}
 		else {
 			var msg = name + ' : ' + text;
-			console.log(msg);
+			console.log(msg + `  [${ip}]`);
 			io.to(isJoin).emit('receive message', msg);
 		}
 	});

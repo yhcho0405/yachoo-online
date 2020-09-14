@@ -212,6 +212,8 @@
 </tbody>
 </table>
       `;
+      
+      socket.emit('set ip', ip());
      // $('body').css('overflow-y', 'none');
       $(window).scrollTop(0);
      // $('body').css('overflow-y', 'hidden');
@@ -238,16 +240,12 @@
         socket.emit('roll dice', keepDice);
       }
 
+
       $('#chat').on('submit', function(e){
         socket.emit('send message', $('#name').val(), $('#message').val());
         $('#message').val("");
         $("#message").focus();
         e.preventDefault();
-      });
-
-      socket.on('get ip', function() {
-        var strip = ip();
-        socket.emit('set ip', strip);
       });
 
       socket.on('receive message', function(msg){

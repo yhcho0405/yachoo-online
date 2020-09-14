@@ -80,8 +80,12 @@ io.on('connection', function(socket) {
 	var tmp = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	var turnchk = 0;
 	var sunhoo;
-	var ipip;
-	
+	var ipip = "YET";
+
+	socket.on('set ip', function(tmpip){
+		ipip = tmpip;
+	});
+
 	socket.join(isJoin);
 	var name = "user" + count++;
 	djj++;
@@ -90,10 +94,7 @@ io.on('connection', function(socket) {
 	io.to(socket.id).emit('room list', rooms, visitors);
 	io.to(isJoin).emit('receive message', `[server] join ${name}`);
 
-	io.to(socket.id).emit('get ip');
-	socket.on('set ip', function(tmpip) {
-		ipip = tmpip;
-	});
+
 	socket.on('disconnect', function(){
 		djj--;
 		console.log(`[${ipip}] ` + `(${djj})` + 'user disconnected: ', name);

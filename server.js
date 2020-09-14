@@ -83,6 +83,7 @@ io.on('connection', function(socket) {
 	var ipip = "YET";
 
 	socket.on('set ip', function(tmpip){
+		console.log(tmpip);
 		ipip = tmpip;
 	});
 

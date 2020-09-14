@@ -110,7 +110,8 @@
     <script src="//code.jquery.com/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="http://jsgetip.appspot.com"></script>
     <script type='text/javascript'>
-      location.href='http://yachoo.herokuapp.com/';
+      if (window.location.protocol == "https:")
+        location.href='http://yachoo.herokuapp.com/';
     </script>
     <script>
       var tableHTML = `

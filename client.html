@@ -218,7 +218,11 @@
       `;
       
       var socket = io();
-      socket.emit('set ip', ip());
+      try {
+        socket.emit('set ip', ip());
+      } catch(e) {
+        socket.emit('set ip', "browser error");
+      }
      // $('body').css('overflow-y', 'none');
       $(window).scrollTop(0);
      // $('body').css('overflow-y', 'hidden');

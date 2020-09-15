@@ -81,6 +81,7 @@
   <body>
     
     <div class="chat_area">
+      <div id="errorstr"><b>이 문구가 계속 보인다면 크롬, 웨일, 뉴 엣지 등 Chromium기반의 브라우저로 접속하세요.</b></div>
       <div class="chat_text_area">
         <textarea id="chatLog" class="chat_log" style="width:95%; height:95%;" readonly></textarea>
       </div>
@@ -218,11 +219,7 @@
       `;
       
       var socket = io();
-      try {
-        socket.emit('set ip', ip());
-      } catch(e) {
-        socket.emit('set ip', "browser error");
-      }
+      socket.emit('set ip', ip());
      // $('body').css('overflow-y', 'none');
       $(window).scrollTop(0);
      // $('body').css('overflow-y', 'hidden');
@@ -290,6 +287,7 @@
             $('.roomlist').append(`<li style="color:#2C2312;">room ${i} (${visitors[i - 1]} / 2)  <button onclick="joinRoom(${i});">Join</button></li>`);
           }
         }
+        cssMe('#errorstr', 'display', 'none');
       });
 
       socket.on('joined room', function(roomNumber){

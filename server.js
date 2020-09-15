@@ -75,10 +75,10 @@ io.on('connection', function(socket) {
 	var sunhoo;
 	var ipip = "YET";
 	djj++;
+	console.log(`[${ipip}] ` + `(${djj})` + 'user connected:    ', name);
 
 	socket.on('set ip', function(tmpip){
 		ipip = tmpip;
-		console.log(`[${ipip}] ` + `(${djj})` + 'user connected:    ', name);
 	});
 
 	socket.join(isJoin);

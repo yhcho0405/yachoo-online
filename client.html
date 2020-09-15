@@ -247,7 +247,9 @@
 
 
       $('#chat').on('submit', function(e){
-        socket.emit('send message', $('#name').val(), $('#message').val());
+        if ($('#message').val().trim()) {
+          socket.emit('send message', $('#name').val(), $('#message').val());
+        }
         $('#message').val("");
         $("#message").focus();
         e.preventDefault();

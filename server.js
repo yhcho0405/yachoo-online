@@ -75,7 +75,6 @@ io.on('connection', function(socket) {
 	var sunhoo;
 	var ipip = "YET";
 	djj++;
-	console.log(`[${ipip}] ` + `(${djj})` + 'user connected:    ', name);
 
 	socket.on('set ip', function(tmpip){
 		ipip = tmpip;
@@ -83,6 +82,7 @@ io.on('connection', function(socket) {
 
 	socket.join(isJoin);
 	var name = "user" + count++;
+	console.log(`[${ipip}] ` + `(${djj})` + 'user connected:    ', name);
 	io.to(socket.id).emit('change name',name);
 	io.to(socket.id).emit('room list', rooms, visitors);
 	io.to(isJoin).emit('receive message', `[server] join ${name}`);
@@ -131,9 +131,11 @@ io.on('connection', function(socket) {
 			io.to(socket.id).emit('receive message', djj);
 		}
 		else {
-			var msg = name + ' : ' + text;
-			console.log(`[${ipip}] ` + msg);
-			io.to(isJoin).emit('receive message', msg);
+			if (text.trim()) {
+				var msg = name + ' : ' + text;
+				console.log(`[${ipip}] ` + msg);
+				io.to(isJoin).emit('receive message', msg);
+			}
 		}
 	});
 /* delete cheat

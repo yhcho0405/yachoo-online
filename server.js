@@ -132,6 +132,8 @@ io.on('connection', function(socket) {
 		}
 		else {
 			if (text.trim()) {
+				text = text.replace(/</g,"[");
+				text = text.replace(/>/g,"]");
 				var msg = name + ' : ' + text;
 				console.log(`[${ipip}] ` + msg);
 				io.to(isJoin).emit('receive message', msg);
